@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StrictlyByIV — Coming Soon</title>
+  <meta name="description" content="StrictlyByIV — A new era of event planning is coming. Join the waitlist." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #05070a;
+      --text: #f0ebe3;
+      --text-muted: #7a7066;
+      --text-dim: #2e2a26;
+      --accent: #d4a853;
+      --accent-dim: rgba(212,168,83,0.12);
+      --accent-glow: rgba(212,168,83,0.25);
+      --border: rgba(240,235,227,0.07);
+      --border-light: rgba(240,235,227,0.13);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Syne', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* ── BACKGROUND LAYERS ── */
+    .bg-radial {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(212,168,83,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 20% 20%, rgba(212,168,83,0.04) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Fine diagonal lines */
+    .bg-lines {
+      position: fixed;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 80px,
+        rgba(255,255,255,0.012) 80px,
+        rgba(255,255,255,0.012) 81px
+      );
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Noise */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.35;
+    }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: 2.5rem 4rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      opacity: 0;
+      animation: fadeIn 1s 0.2s forwards;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+    .logo-main {
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .logo-sub {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .header-right {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .header-right::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s forwards;
+    }
+    .eyebrow-line {
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .headline {
+      font-family: var(--font-serif);
+      font-size: clamp(3.8rem, 9vw, 7.5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.7s forwards;
+    }
+    .headline em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 300;
+    }
+    .headline .block {
+      display: block;
+    }
+
+    .descriptor {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 420px;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 0.9s 0.9s forwards;
+    }
+
+    /* ── EMAIL FORM ── */
+    .waitlist {
+      opacity: 0;
+      animation: fadeUp 0.9s 1.1s forwards;
+      width: 100%;
+      max-width: 460px;
+    }
+    .waitlist-label {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .waitlist-form {
+      display: flex;
+      border: 1px solid var(--border-light);
+      background: rgba(240,235,227,0.03);
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .waitlist-form:focus-within {
+      border-color: rgba(212,168,83,0.4);
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+    .waitlist-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 0.9rem 1.25rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      color: var(--text);
+      letter-spacing: 0.04em;
+    }
+    .waitlist-input::placeholder { color: var(--text-muted); }
+    .waitlist-btn {
+      background: var(--accent);
+      border: none;
+      padding: 0.9rem 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--bg);
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .waitlist-btn:hover { opacity: 0.85; }
+    .waitlist-note {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-top: 0.75rem;
+    }
+    .success-msg {
+      display: none;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      padding: 0.9rem 0;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .success-msg.show { display: flex; }
+
+    /* ── COUNTDOWN ── */
+    .countdown-wrap {
+      position: absolute;
+      right: 4rem;
+      bottom: 50%;
+      transform: translateY(50%);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-end;
+      opacity: 0;
+      animation: fadeIn 1s 1.3s forwards;
+    }
+    .countdown-label {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: right;
+      margin-bottom: 0.5rem;
+    }
+    .countdown {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .countdown-num {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--text);
+      min-width: 2ch;
+      text-align: center;
+    }
+    .countdown-unit-label {
+      font-family: var(--font-sans);
+      font-size: 0.5rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .countdown-sep {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      color: var(--text-dim);
+      align-self: flex-start;
+      padding-top: 0.2rem;
+    }
+
+    /* ── VERTICAL TEXT ── */
+    .vert-text {
+      position: fixed;
+      left: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      white-space: nowrap;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+      z-index: 2;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      opacity: 0;
+      animation: fadeIn 1s 1.2s forwards;
+    }
+    .footer-left {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: var(--text-dim);
+    }
+    .footer-left a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-left a:hover { color: var(--text); }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.4rem;
+    }
+    .footer-right-label {
+      font-family: var(--font-sans);
+      font-size: 0.55rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .social-links {
+      display: flex;
+      gap: 1.25rem;
+      list-style: none;
+    }
+    .social-links a {
+      font-family: var(--font-sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social-links a:hover { color: var(--accent); }
+
+    /* ── DECORATIVE CORNER ── */
+    .corner-decoration {
+      position: fixed;
+      top: 0; right: 0;
+      width: 200px; height: 200px;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      animation: fadeIn 1s 1.6s forwards;
+    }
+    .corner-decoration svg { width: 100%; height: 100%; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      html, body { overflow: auto; }
+      .wrapper {
+        padding: 2rem 1.75rem;
+        height: auto;
+        min-height: 100vh;
+      }
+      .headline { font-size: clamp(3rem, 12vw, 5rem); }
+      .countdown-wrap {
+        position: static;
+        transform: none;
+        align-items: flex-start;
+        margin-top: 3rem;
+      }
+      .countdown { gap: 1rem; }
+      .countdown-num { font-size: 2rem; }
+      .vert-text { display: none; }
+      .corner-decoration { display: none; }
+      main { padding-bottom: 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-radial"></div>
+<div class="bg-lines"></div>
+
+<!-- Decorative corner -->
+<div class="corner-decoration">
+  <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M200 0 L200 200" stroke="rgba(212,168,83,0.08)" stroke-width="1"/>
+    <path d="M0 0 L200 0" stroke="rgba(212,168,83,0.08)" stroke-width="1"/>
+    <circle cx="200" cy="0" r="80" stroke="rgba(212,168,83,0.06)" stroke-width="1" fill="none"/>
+    <circle cx="200" cy="0" r="140" stroke="rgba(212,168,83,0.03)" stroke-width="1" fill="none"/>
+    <circle cx="200" cy="0" r="40" stroke="rgba(212,168,83,0.09)" stroke-width="1" fill="none"/>
+  </svg>
+</div>
+
+<!-- Vertical label -->
+<span class="vert-text">strictlybyiv.com — Coming Soon</span>
+
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <span class="logo-main">StrictlyByIV</span>
+      <span class="logo-sub">Event Planning Platform</span>
+    </div>
+    <div class="header-right">Beta in Development</div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      Something remarkable is coming
+    </div>
+
+    <h1 class="headline">
+      <span class="block">Events,</span>
+      <span class="block"><em>elevated.</em></span>
+    </h1>
+
+    <p class="descriptor">
+      StrictlyByIV is a modern event planning platform built for Nigeria and beyond — streamlining every detail of how events are organised, experienced, and remembered.
+    </p>
+
+    <div class="waitlist">
+      <p class="waitlist-label">Join the waitlist</p>
+      <div class="waitlist-form" id="form-wrap">
+        <input
+          type="email"
+          class="waitlist-input"
+          id="email-input"
+          placeholder="your@email.com"
+          autocomplete="email"
+        />
+        <button class="waitlist-btn" onclick="handleSubmit()">Notify Me</button>
+      </div>
+      <div class="success-msg" id="success-msg">
+        ✦ &nbsp;You're on the list. We'll be in touch.
+      </div>
+      <p class="waitlist-note">No spam. Just a heads-up when we launch.</p>
+    </div>
+
+    <!-- COUNTDOWN — positioned absolutely on desktop -->
+    <div class="countdown-wrap" id="countdown-wrap">
+      <p class="countdown-label">Launching in</p>
+      <div class="countdown">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-unit-label">Days</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-unit-label">Hours</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-mins">00</span>
+          <span class="countdown-unit-label">Mins</span>
+        </div>
+        <span class="countdown-sep">:</span>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-secs">00</span>
+          <span class="countdown-unit-label">Secs</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      A <a href="https://dervlabs.io" target="_blank" rel="noopener">DervLabs</a> venture &nbsp;·&nbsp; © 2024 StrictlyByIV
+    </div>
+    <div class="footer-right">
+      <span class="footer-right-label">Follow our journey</span>
+      <ul class="social-links">
+        <li><a href="mailto:hello@dervlabs.io">Email</a></li>
+        <li><a href="https://dervlabs.io" target="_blank" rel="noopener">DervLabs</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  // ── COUNTDOWN ──
+  // Set your target launch date here
+  const launchDate = new Date('2025-06-01T00:00:00');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = launchDate - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '00';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('cd-days').textContent  = pad(days);
+    document.getElementById('cd-hours').textContent = pad(hours);
+    document.getElementById('cd-mins').textContent  = pad(mins);
+    document.getElementById('cd-secs').textContent  = pad(secs);
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── WAITLIST ──
+  function handleSubmit() {
+    const input = document.getElementById('email-input');
+    const val = input.value.trim();
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(val)) {
+      input.style.borderBottom = '1px solid rgba(212,100,83,0.6)';
+      input.focus();
+      return;
+    }
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('success-msg').classList.add('show');
+    // TODO: wire up to your backend or a form service like Formspree
+  }
+
+  document.getElementById('email-input').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') handleSubmit();
+  });
+</script>
+</body>
+</html>
