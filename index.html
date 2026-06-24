@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StrictlyByIV — Coming Soon</title>
   <meta name="description" content="StrictlyByIV — A new era of event planning is coming. Join the waitlist." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2305070a'/%3E%3Cpath d='M16 34 32 12l16 22-16 18z' fill='%23d4a853'/%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -386,6 +387,23 @@
       transition: color 0.2s;
     }
     .social-links a:hover { color: var(--accent); }
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.85rem;
+      justify-content: flex-end;
+      list-style: none;
+    }
+    .legal-links a {
+      font-family: var(--font-sans);
+      font-size: 0.56rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .legal-links a:hover { color: var(--accent); }
 
     /* ── DECORATIVE CORNER ── */
     .corner-decoration {
@@ -429,6 +447,13 @@
       .vert-text { display: none; }
       .corner-decoration { display: none; }
       main { padding-bottom: 3rem; }
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+      .footer-right { align-items: flex-start; }
+      .legal-links { justify-content: flex-start; }
     }
   </style>
 </head>
@@ -526,13 +551,18 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-left">
-      A <a href="https://dervlabs.io" target="_blank" rel="noopener">DervLabs</a> venture &nbsp;·&nbsp; © 2025 StrictlyByIV
+      A <a href="https://dervlabs.io" target="_blank" rel="noopener">DervLabs</a> venture &nbsp;·&nbsp; © 2026 StrictlyByIV
     </div>
     <div class="footer-right">
       <span class="footer-right-label">Follow our journey</span>
       <ul class="social-links">
-        <li><a href="mailto:hello@dervlabs.io">Email</a></li>
+        <li><a href="mailto:support@strictlybyiv.com">Email</a></li>
         <li><a href="https://dervlabs.io" target="_blank" rel="noopener">DervLabs</a></li>
+      </ul>
+      <ul class="legal-links" aria-label="Legal links">
+        <li><a href="/legal/terms/">Terms</a></li>
+        <li><a href="/legal/privacy/">Privacy</a></li>
+        <li><a href="/account/delete/">Account deletion</a></li>
       </ul>
     </div>
   </footer>
@@ -541,8 +571,8 @@
 
 <script>
   // ── COUNTDOWN ──
-  // Launch date: 01 June 2026 (00:00 UTC)
-  const launchDate = new Date('2026-06-01T00:00:00Z');
+  // Launch date: 01 October 2026 (00:00 UTC)
+  const launchDate = new Date('2026-10-01T00:00:00Z');
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
