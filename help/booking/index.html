@@ -39,7 +39,7 @@
         <aside class="status-card" aria-label="Article status">
           <span class="meta-label">Help article</span>
           <strong>Booking lifecycle</strong>
-          <p>Last updated: July 4, 2026<br />Support: <a href="mailto:support@strictlybyiv.com">support@strictlybyiv.com</a></p>
+          <p>Last updated: July 16, 2026<br />Support: <a href="mailto:support@strictlybyiv.com">support@strictlybyiv.com</a></p>
         </aside>
       </section>
 
@@ -64,8 +64,8 @@
             <ul>
               <li>Submitting a request does not mean payment has been taken.</li>
               <li>The provider reviews the request before paid steps become available.</li>
-              <li>Request details can include amount, service dates, description, and notes.</li>
-              <li>Provider-controlled terms, such as payment mode and deposit percentage, come from the provider profile.</li>
+              <li>Request details include exact service start and end times, amount, description, and notes.</li>
+              <li>Provider-controlled terms, such as payment mode, 10–90% deposit, balance due days, and grace days, come from the provider profile.</li>
             </ul>
           </section>
 
@@ -78,7 +78,7 @@
               <li><strong>Confirmed:</strong> The booking has moved into an active operational state after the required payment or confirmation rules are satisfied.</li>
               <li><strong>Declined:</strong> The provider declined the request. The booking remains available for history.</li>
               <li><strong>Cancelled:</strong> The booking has ended before completion. Available refund or review details depend on payment state and policy rules.</li>
-              <li><strong>Completed:</strong> The service has been marked complete according to the app's completion flow.</li>
+              <li><strong>Completed:</strong> The booker confirmed after service, or the system completed the booking after eligible payout auto-release rules were satisfied.</li>
               <li><strong>Under review:</strong> The booking needs support or dispute review before it can continue or close.</li>
             </ul>
           </section>
@@ -89,8 +89,12 @@
             <p>StrictlyByIV uses hosted payment checkout when payment is required. After checkout, the app checks the latest payment schedule and booking state before showing the next action.</p>
             <ul>
               <li>Use the payment action shown in the booking detail screen when it is available.</li>
+              <li>Initial full or deposit payment expires at the earlier of 24 hours after acceptance and service start.</li>
+              <li>Balance deadlines are provider-controlled but cannot pass the start of the service date.</li>
+              <li>Deposit-and-balance is unavailable with fewer than 24 hours before service; rush full payment may have a shorter refund window.</li>
+              <li>A late payment does not reopen an expired booking and is reviewed for refund.</li>
               <li>Do not send payment outside the app for an in-app booking request.</li>
-              <li>Refund windows and held-funds rules are policy-controlled and may depend on timing, payment status, and review state.</li>
+              <li>Self-service full refund ends at the earlier of 24 hours after payment and service start. The booking screen shows the exact available deadline.</li>
             </ul>
             <ul class="doc-links">
               <li><a href="/legal/payments-refunds-payouts/">Read Payments, Refunds, and Payouts</a></li>
@@ -100,18 +104,21 @@
           <section class="section" id="cancellation">
             <h2>4. Cancellation and disputes</h2>
             <p>If self-serve cancellation is available, the booking detail screen shows a cancellation action. This usually means the booking can be cancelled without support review, such as before successful payment or within an eligible refund window.</p>
-            <p>If the booking is paid and no longer self-serve cancellable, the app may show an open-dispute or support-review action instead. Use that path when the booking needs help beyond normal cancellation.</p>
+            <p>If the booking is paid and no longer self-serve cancellable, the app may show an open-dispute or support-review action instead. You will choose whether the service was not provided, was not as agreed, involves a payment or refund issue, or is another issue, then describe what happened.</p>
             <ul>
               <li>Review the confirmation copy before cancelling or opening a dispute.</li>
-              <li>When a booking is under review, paid funds may remain held while support reviews the issue.</li>
+              <li>When a booking is under review, unsubmitted payout is held while support reviews the issue.</li>
+              <li>If the provider wins, held payout resumes. If the booker wins, unreleased successful payments are queued for refund.</li>
+              <li>A deposit that was already released to the provider is not refunded by this dispute workflow.</li>
               <li>Cancelled bookings may still remain visible for history, payment records, or support context.</li>
             </ul>
           </section>
 
           <section class="section" id="completion">
             <h2>5. Completion</h2>
-            <p>Completion actions help both sides confirm that service delivery is finished. A booker may confirm service delivery, and a provider may mark service delivered when they are ready.</p>
-            <p>When both sides confirm, eligible held funds may release sooner. If service is incomplete, incorrect, or needs review, do not confirm completion; message the other party or open support review instead.</p>
+            <p>Completion actions become available after the service end time and after required payments succeed. The booker may use <strong>Confirm Booking Complete</strong> to authorize immediate processing of eligible held full or balance payment.</p>
+            <p>The provider may use <strong>Request Payout</strong> to record fulfillment and ask the booker to confirm. Provider request is optional and does not start, delay, or reset automatic payout. If no financial block exists, eligible full-upfront or balance funds become payout-eligible 24 hours after service ends.</p>
+            <p>If anything is incomplete, incorrect, or needs review, do not confirm completion or request payout. Message the other party or open support review before funds are released.</p>
           </section>
 
           <section class="section" id="messages">

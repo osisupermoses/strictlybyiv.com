@@ -38,7 +38,7 @@
         <aside class="status-card" aria-label="Document status">
           <span class="meta-label">Document status</span>
           <strong>Draft for review</strong>
-          <p>Effective date: To be confirmed<br />Last updated: June 24, 2026</p>
+          <p>Effective date: To be confirmed<br />Last updated: July 16, 2026</p>
         </aside>
       </section>
 
@@ -62,26 +62,30 @@
         <article class="document">
           <section class="section" id="booking-payments">
             <h2>1. Booking payments</h2>
-            <p>StrictlyByIV bookings may use full upfront payment or deposit-and-balance payment. Payment mode, deposit percentage, and balance timing are shown before a booking is paid.</p>
-            <p>When a booking payment succeeds, StrictlyByIV may hold eligible funds while refund, dispute, completion, and payout rules are evaluated.</p>
+            <p>StrictlyByIV bookings use either <strong>Pay in full to confirm</strong> or <strong>Deposit, then balance</strong>. Providers and venues may set a deposit from 10% to 90%, a balance due point from 0 to 30 days before service, and up to 7 grace days. The final balance deadline never extends beyond the start of the service date.</p>
+            <p>The initial full or deposit payment is due at the earlier of 24 hours after provider acceptance and the service start time. Deposit-and-balance is not offered when fewer than 24 hours remain before service or its balance cutoff has passed; the booking must be recreated using full payment. A late payment cannot reactivate an expired booking and is sent for refund review.</p>
+            <p>When a booking payment succeeds, StrictlyByIV may hold eligible funds while refund, dispute, completion, payout, and transfer-review rules are evaluated. Collected funds are not treated as paid out to the provider until the payout transfer has conclusively succeeded.</p>
           </section>
 
           <section class="section" id="refunds">
             <h2>2. Refund window</h2>
-            <p>Deposits, balances, and full upfront payments may be refundable within the platform refund grace period, unless the service starts earlier or another rule applies.</p>
-            <p>After the refund window closes, users may need to contact support or open a dispute instead of using self-serve cancellation.</p>
+            <p>A successful deposit, balance, or full payment is eligible for self-service full refund until the earlier of 24 hours after payment and the service start time. A rush full-payment booking may therefore have less than 24 hours of self-service refund protection; the app shows the exact deadline before or after payment where applicable.</p>
+            <p>After the refund window closes, users may need to contact support or open a dispute instead of using self-serve cancellation. A queued or processing gateway refund remains pending until the payment partner confirms it has been processed.</p>
           </section>
 
           <section class="section" id="disputes">
             <h2>3. Disputes and review</h2>
-            <p>If there is a problem with a paid booking, users should contact the other party or open a support/dispute request before funds are released. A disputed booking may pause payout while the issue is reviewed.</p>
-            <p>StrictlyByIV may review booking records, messages, payment status, completion signals, and other relevant information to decide whether funds should be refunded, released, partially released, or held for further review.</p>
+            <p>If there is a problem with a paid booking, users should contact the other party or open a dispute before funds are released. The dispute request records a category and description. A disputed booking pauses unsubmitted payout while the issue is reviewed.</p>
+            <p>StrictlyByIV may review booking records, messages, payment status, completion signals, and other relevant information. If the provider wins, held payout resumes and the booking completes. If the booker wins, unreleased successful payments are queued for refund and the booking is cancelled.</p>
+            <p>Deposits already released to the provider remain released. A claim involving released funds requires operations review and may require a platform-funded exception or provider recovery outside this workflow. This workflow does not provide partial refunds or automated clawback.</p>
           </section>
 
           <section class="section" id="payouts">
             <h2>4. Provider payouts</h2>
-            <p>Eligible provider payouts may release after refund windows close, disputes are cleared, and completion or auto-release rules are satisfied.</p>
-            <p>When both booker and provider confirm completion, eligible funds may be released sooner. Actual settlement timing can still depend on payment processor checks, bank processing, payout account status, and operational review.</p>
+            <p>Deposit payouts may release after the refund grace window closes, provided the booking and payment are not blocked by cancellation, dispute, refund, failed transfer, or review state.</p>
+            <p>Full-upfront and balance payments remain held through the service. After service ends, the booker's <strong>Confirm Booking Complete</strong> action authorizes immediate processing of eligible held funds. It does not require a provider request or an additional payment-age delay.</p>
+            <p>If the booker does not confirm and no cancellation, dispute, refund, failed transfer, or review state blocks release, eligible full-upfront or balance funds become payout-eligible 24 hours after the service end time. The provider's <strong>Request Payout</strong> action records fulfillment and asks the booker to confirm; it never starts, delays, or resets that automatic-release time.</p>
+            <p>When the system auto-releases eligible full-upfront or balance funds, the booking may be marked completed by system audit while preserving whether each party actually confirmed. Actual settlement timing can still depend on payment processor checks, bank processing, payout account status, transfer success, and operational review.</p>
           </section>
 
           <section class="section" id="fees">
