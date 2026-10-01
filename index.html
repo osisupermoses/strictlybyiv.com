@@ -538,7 +538,7 @@
       <div class="success-msg" id="success-msg">
         ✦ &nbsp;You're on the list. We'll be in touch.
       </div>
-      <p class="waitlist-note">No spam. Just a heads-up when we launch.</p>
+      <p class="waitlist-note">No spam. Just a heads-up when we launch. See our <a href="/legal/privacy/">Privacy Policy</a>.</p>
     </div>
 
     <!-- COUNTDOWN — positioned absolutely on desktop -->
@@ -630,9 +630,18 @@
       input.focus();
       return;
     }
-    document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('success-msg').classList.add('show');
-    // TODO: wire up to your backend or a form service like Formspree
+    // Google Forms accepts a plain form post; the response is opaque (no-cors), so only a
+    // network failure is detectable. Responses land in the "StrictlyByIV waitlist" form.
+    const body = new URLSearchParams({ 'entry.1118755815': val });
+    fetch('https://docs.google.com/forms/d/e/1FAIpQLSdoBXagTIOx2D6k7ieJCSapCM9GC0NulKZINBNl9Dx9YaHqnQ/formResponse', {
+      method: 'POST', mode: 'no-cors', body,
+    }).then(() => {
+      document.getElementById('form-wrap').style.display = 'none';
+      document.getElementById('success-msg').classList.add('show');
+    }).catch(() => {
+      input.style.borderBottom = '1px solid rgba(212,100,83,0.6)';
+      input.placeholder = 'Could not send. Check your connection and try again.';
+    });
   }
 
   document.getElementById('email-input').addEventListener('keydown', (e) => {
