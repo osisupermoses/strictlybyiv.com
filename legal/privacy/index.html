@@ -43,7 +43,7 @@
         <aside class="status-card" aria-label="Document status">
           <span class="meta-label">Document status</span>
           <strong>Draft for review</strong>
-          <p>Effective date: To be confirmed<br />Last updated: October 1, 2026</p>
+          <p>Effective date: To be confirmed<br />Last updated: October 2, 2026</p>
         </aside>
       </section>
 
@@ -128,11 +128,12 @@
             <p>We may ask a vendor, venue, or planner to verify their identity before they can receive payouts, to protect customers from fraud and to meet anti-money-laundering expectations. We use <strong>Dojah</strong> (Dojah Inc., Nigeria) to check the details you submit against official records:</p>
             <ul>
               <li><strong>Individuals:</strong> your National Identification Number (NIN) is checked against the National Identity Management Commission (NIMC) database.</li>
-              <li><strong>Businesses:</strong> your company registration (RC or BN) number and company type are checked against the Corporate Affairs Commission (CAC) register, together with the NIN of a company representative.</li>
+              <li><strong>Businesses:</strong> your company registration (RC or BN) number and company type are checked against the Corporate Affairs Commission (CAC) register, which returns the registered name and whether the registration is active. You also give your own NIN as the business’s representative.</li>
             </ul>
             <p>Dojah returns the legal name on the record. We compare it with your profile name and your payout bank account name. We ask for your consent before submitting a check.</p>
-            <p><strong>What we keep:</strong> the verification result and status, the last four digits of the ID number, a one-way keyed hash of the full ID number (so we can detect the same ID being used on another account), and the matched legal name, which is encrypted. We do <strong>not</strong> store your full ID number, date of birth, photo, gender, or phone number from the identity record, even when the official record contains them. We do not collect selfies or photos of ID documents.</p>
-            <p>If an automatic check fails or the names do not match, a member of our team can review it. Contact us if you believe a result is wrong.</p>
+            <p><strong>Business verifications are always reviewed by a member of our team</strong> before a business is marked verified. As part of that review we may ask Dojah for the list of people the CAC register names for the business (its directors, proprietors, or trustees) and compare your name with it. That list is official register data about those people; we use it only for this comparison and keep only the outcome.</p>
+            <p><strong>What we keep:</strong> the verification result and status, the last four digits of the ID number, a one-way keyed hash of the full ID number (so we can detect the same ID being used on another account), and the matched legal name, which is encrypted. For a business we also keep, encrypted, the company registration number (so our team can check it again later without asking you) and the representative’s name as it appears on their NIN record. We do <strong>not</strong> store your full ID number, date of birth, photo, gender, or phone number from the identity record, even when the official record contains them. We do not collect selfies or photos of ID documents.</p>
+            <p>If a personal check fails or the names do not match, a member of our team can review it. Contact us if you believe a result is wrong.</p>
           </section>
 
           <section class="section" id="sharing">
@@ -183,7 +184,7 @@
             <ul>
               <li><strong>Your account:</strong> for as long as it is open. If you delete your account, it is disabled immediately and your personal data is deleted or anonymized 30 days later (see <a href="/account/delete/">Account deletion</a>).</li>
               <li><strong>Financial and booking records</strong> (payments, refunds, payouts, settlements, subscription billing, bookings, and disputes): 6 years after the end of the financial year in which the transaction took place, to meet tax, accounting, and legal obligations. After an account is deleted these records are kept in a form detached from your name and contact details.</li>
-              <li><strong>Identity verification records:</strong> the status, last four digits, and hashed ID number are kept for 6 years after your account is closed, for fraud and anti-money-laundering purposes. The matched legal name is erased when your account is deleted. Cached lookup results from Dojah are discarded after 14 days.</li>
+              <li><strong>Identity verification records:</strong> the status, last four digits, and hashed ID number are kept for 6 years after your account is closed, for fraud and anti-money-laundering purposes. The matched legal name, the representative’s name, and the company registration number are erased when your account is deleted. Cached lookup results from Dojah, including any list of a business’s registered officers fetched during a review, are discarded after 14 days.</li>
               <li><strong>Deleted messages:</strong> text and attachments are erased at the moment of deletion. When you delete your account, the text and attachments of messages you sent are erased too.</li>
               <li><strong>Reports and moderation records</strong>, including any copy of a reported message: 2 years after the report is resolved, or longer if needed for an ongoing dispute or legal claim.</li>
               <li><strong>Staff audit and security records:</strong> 2 years, except records of decisions about money (refunds, payouts, and dispute outcomes), which follow the 6-year schedule for financial records.</li>
