@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Get StrictlyByIV</title>
+<meta name="description" content="Download StrictlyByIV on the App Store or Google Play.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.strictlybyiv.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StrictlyByIV">
+<meta property="og:url" content="https://www.strictlybyiv.com/get/">
+<meta property="og:title" content="Get StrictlyByIV">
+<meta property="og:description" content="Plan the whole event and book people you can trust. Free on iPhone and Android.">
+<meta property="og:image" content="https://www.strictlybyiv.com/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#4D0316">
+<script>
+  // Send phones straight to their store; everyone else lands on the homepage's download section.
+  // Runs before first paint so phones never see this page.
+  (function () {
+    var ua = navigator.userAgent || "";
+    var android = /Android/.test(ua);
+    var ios = !android && (/iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
+    var target = android ? "https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"
+      : ios ? "https://apps.apple.com/app/id6761930760"
+      : "/#download";
+    location.replace(target);
+  })();
+</script>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;background:#4D0316;color:#FFF7EE;font:500 16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:24px}
+  a{color:#E6BE62;font-weight:600}
+</style>
+</head>
+<body>
+  <main>
+    <p>Taking you to the app store…</p>
+    <p><a href="https://apps.apple.com/app/id6761930760">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a></p>
+  </main>
+</body>
+</html>
