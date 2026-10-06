@@ -194,10 +194,20 @@ section{scroll-margin-top:80px}
   .show-cap{display:block;order:4;color:var(--ink-2);text-align:center;max-width:40ch;margin-inline:auto}
 }
 
+/* On the day */
+.day-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.day-grid .stage{order:-1}
+.points{list-style:none;margin:2rem 0 0;padding:0;display:grid;gap:1.25rem}
+.points li{display:grid;grid-template-columns:24px 1fr;gap:.9rem;align-items:start}
+.points svg{color:var(--gold);margin-top:3px}
+.points strong{display:block;color:var(--ink);font-weight:600}
+.points span{color:var(--ink-2);font-size:.95rem}
+@media (max-width:900px){.day-grid{grid-template-columns:1fr;gap:28px}.day-grid .stage{order:0}}
+
 /* Book */
 .book{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,32px);margin-top:clamp(40px,5vw,64px)}
 .book figure{margin:0;min-width:0}
-.book .shot{background:var(--bg);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3vw,36px) 0 0;overflow:hidden;aspect-ratio:4/5;display:flex;justify-content:center;max-width:100%}
+.book .shot{background:var(--bg-2);border:1px solid var(--line);border-radius:28px;padding:clamp(22px,3vw,36px) 0 0;overflow:hidden;aspect-ratio:4/5;display:flex;justify-content:center;max-width:100%}
 .book .shot img{width:78%;height:auto;align-self:flex-start;border:8px solid var(--phone);border-bottom:0;border-radius:34px 34px 0 0}
 .book figcaption{margin-top:1.1rem}
 .book figcaption h3{font-size:var(--step-1);color:var(--ink)}
@@ -277,6 +287,8 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   .phone img{border-radius:32px}
   .showcase{gap:18px}
   .perks{margin-top:1.5rem;gap:.9rem}
+  .points{margin-top:1.4rem;gap:1rem}
+  .day-grid{gap:20px}
   .kinds,.band-cta{margin-top:1.3rem}
   .band-cta{flex-direction:column;align-items:stretch;text-align:center;gap:.6rem}
   .band-cta .btn{padding-block:1.05rem;font-size:1rem}
@@ -377,13 +389,13 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
       <div class="sec-head">
         <p class="eyebrow">Plan</p>
         <h2>Everything for the day, in one place.</h2>
-        <p>Weddings, birthdays, owambes and corporate dinners. Share it with your partner or planner and work on it together.</p>
+        <p>Weddings, owambes, naming ceremonies, birthdays and corporate dinners. Plan it all in one place, together.</p>
       </div>
       <div class="tabs" role="tablist" aria-label="Planning tools">
         <button class="tab" role="tab" aria-selected="true" aria-controls="show-panel" data-shot="/assets/home/budget.webp" id="tab-budget"><span class="t">Budget</span><span class="d">Set a budget, log quotes and payments, and see what's left in naira at a glance.</span></button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/guests.webp" id="tab-guests"><span class="t">Guest list &amp; RSVPs</span><span class="d">Import your list from a spreadsheet, send invites, track RSVPs and assign tables.</span></button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/checkin.webp" id="tab-checkin"><span class="t">Check-in at the door</span><span class="d">Check guests in on the day, so you know exactly who has arrived.</span></button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/workspace.webp" id="tab-workspace"><span class="t">Shared workspace</span><span class="d">Checklist, budget, guests and bookings together, with your team working alongside you.</span></button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/checklist.webp" id="tab-checklist"><span class="t">Checklist</span><span class="d">Start from a checklist made for your kind of event. Give tasks to the right people, with due dates and reminders.</span></button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/guests.webp" id="tab-guests"><span class="t">Invitations &amp; RSVPs</span><span class="d">Send each guest a personal invitation link. They reply in their browser and add plus-ones, and the address stays hidden until they accept.</span></button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/workspace.webp" id="tab-team"><span class="t">Your team</span><span class="d">Bring in your partner, family or planner by link, and choose what each person can see and do, from the guest list to the budget.</span></button>
       </div>
       </div>
       <div class="show-stage" id="show-panel" role="tabpanel" aria-labelledby="tab-budget">
@@ -395,7 +407,28 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   </div>
 </section>
 
-<section class="sec money" id="book">
+<section class="sec money" id="day">
+  <div class="wrap day-grid">
+    <div>
+      <div class="sec-head">
+        <p class="eyebrow">On the day</p>
+        <h2>Know who's here as they arrive.</h2>
+        <p>Check guests in at the gate with their QR pass, and watch your headcount fill up live.</p>
+      </div>
+      <ul class="points">
+        <li><svg width="22" height="22"><use href="#i-check"/></svg><div><strong>An entry pass for every guest</strong><span>Guests who say yes get a QR pass on their phone. They don't need the app.</span></div></li>
+        <li><svg width="22" height="22"><use href="#i-check"/></svg><div><strong>Several gates, one list</strong><span>Helpers on your team can scan at the same time, and a pass that has already been used is flagged.</span></div></li>
+        <li><svg width="22" height="22"><use href="#i-check"/></svg><div><strong>Live arrivals</strong><span>See who has checked in, who is still expected and your total headcount, updating as people arrive.</span></div></li>
+      </ul>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="arch"></div>
+      <div class="phone"><img src="/assets/home/live.webp" alt="" width="600" height="1334" loading="lazy" decoding="async"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="book">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">Book</p>
@@ -404,7 +437,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
     </div>
     <div class="book">
       <figure><div class="shot"><img src="/assets/home/venue.webp" alt="A venue profile with photos and rating" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>Compare providers side by side</h3><p>Photos, starting prices, ratings, and a verified badge on providers who have confirmed who they are.</p></figcaption></figure>
-      <figure><div class="shot"><img src="/assets/home/chat.webp" alt="A chat with a provider" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>Talk it through in the app</h3><p>Ask questions, share details and agree the terms in one conversation.</p></figcaption></figure>
+      <figure><div class="shot"><img src="/assets/home/chat.webp" alt="A chat with a provider" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>Talk it through in the app</h3><p>Ask questions and agree the terms in one chat. Providers can counter-offer, and once you book, your vendors share one group chat for the event.</p></figcaption></figure>
       <figure><div class="shot"><img src="/assets/home/payments.webp" alt="Booking payments with deposit and balance" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>Track every payment</h3><p>Deposit, balance and what's due when, on each booking.</p></figcaption></figure>
     </div>
   </div>
@@ -440,6 +473,8 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
     </div>
     <div>
       <details open><summary>Is StrictlyByIV free?</summary><p>Yes. The app is free to download and planning is free for hosts, with room for up to 500 guests per event. You only pay for the bookings you make.</p></details>
+      <details><summary>Do my guests need the app?</summary><p>No. Each guest gets a personal invitation link that opens in any browser. They reply there, and if they're coming, they get a QR entry pass for the door.</p></details>
+      <details><summary>Can more than one person check guests in?</summary><p>Yes. Anyone on your team with access to the guest list can scan passes at the same time, at different gates. A pass that has already been used is flagged.</p></details>
       <details><summary>Where is it available?</summary><p>Providers can list from anywhere in Nigeria. You can plan from anywhere too, including if you're organising an event back home from abroad.</p></details>
       <details><summary>What happens if a provider doesn't deliver?</summary><p>Open a dispute from the booking before the payment is released. The payment is put on hold while our team reviews it.</p></details>
       <details><summary>How do I list my business?</summary><p>Download the app, create an account and set up your provider profile. Once it's reviewed, clients can find and book you.</p></details>
