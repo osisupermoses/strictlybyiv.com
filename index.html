@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>StrictlyByIV: Plan your event, book trusted vendors, venues and planners</title>
 <link rel="icon" type="image/png" href="/assets/home/icon.png">
-<link rel="apple-touch-icon" href="/assets/strictlybyiv-app-icon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta name="color-scheme" content="light dark">
 <meta name="description" content="Plan your event and book trusted vendors, venues and planners across Nigeria. Payments are held until after your event.">
 <link rel="canonical" href="https://www.strictlybyiv.com/">
@@ -30,9 +30,9 @@
    one interactive phone showcase, a single deep-wine band for providers, then download + footer. */
 :root{
   --bg:#FCF9F4; --bg-2:#F4EEE7; --card:#FFFDF9; --line:#E7DED5;
-  --ink:#1F1416; --ink-2:#5C4A4C; --ink-3:#8A7678;
+  --ink:#1F1416; --ink-2:#5C4A4C; --ink-3:#7A6668;
   --wine:#4D0316; --wine-2:#6B1B2A; --on-wine:#FFF7EE;
-  --gold:#8A6D0B; --gold-soft:#F6E7B9; --gold-line:#D9BF73;
+  --gold:#7A5F08; --gold-soft:#F6E7B9; --gold-line:#D9BF73;
   --band:#4D0316; --band-ink:#FFF7EE; --band-muted:#E9CFC9; --band-gold:#E6BE62;
   --arch:#F1E4D6; --phone:#171012; --shadow:0 30px 60px -28px rgba(77,3,22,.35);
   --display:"Fraunces",Georgia,"Times New Roman",serif;
@@ -86,7 +86,12 @@ p{margin:0}
 .btn:active{transform:scale(.98)}
 .btn-wine{background:var(--wine);color:var(--on-wine)}
 .btn-wine:hover{background:var(--wine-2)}
-@media (max-width:820px){.nav ul{display:none}}
+.nav-actions{display:flex;align-items:center;gap:1.1rem}
+.nav-help{display:none;font-size:.95rem;font-weight:500;color:var(--ink-2);text-decoration:none}
+.nav-help:hover{color:var(--wine)}
+@media (max-width:820px){.nav ul{display:none}.nav-help{display:inline}}
+.nav .btn{white-space:nowrap}
+@media (max-width:420px){.nav .wrap{gap:.6rem}.nav-actions{gap:.8rem}.nav .btn{padding:.7rem .95rem;font-size:.9rem}.wordmark{font-size:1.18rem;gap:.45rem}.wordmark img{width:30px;height:30px}}
 
 /* Hero */
 .hero{padding-block:clamp(32px,6vw,72px) clamp(48px,7vw,96px)}
@@ -131,7 +136,7 @@ p{margin:0}
   .stage{margin-top:1rem}
   .chip-1{left:0}.chip-2{right:0}
 }
-@media (max-width:420px){.chip{max-width:170px;padding:.65rem .8rem}.chip .v{font-size:1.05rem}}
+@media (max-width:640px){.chip{max-width:150px;padding:.55rem .75rem;font-size:.78rem}.chip .v{font-size:1rem}.chip .s{display:none}.chip-1{bottom:6%}.chip-2{top:4%}}
 
 /* Section scaffolding */
 section{scroll-margin-top:80px}
@@ -156,6 +161,7 @@ section{scroll-margin-top:80px}
   .timeline li{display:grid;grid-template-columns:47px 1fr;column-gap:1.1rem;padding-right:0}
   .timeline li .n{grid-row:span 3}
   .timeline h3{margin-top:.6rem}
+  .timeline .tag{justify-self:start}
 }
 
 /* Showcase */
@@ -166,10 +172,10 @@ section{scroll-margin-top:80px}
 .tab{all:unset;cursor:pointer;display:block;padding:1.15rem 1.3rem;border-radius:18px;border:1px solid transparent;transition:background .2s,border-color .2s}
 .tab:hover{background:var(--bg-2)}
 .tab[aria-selected="true"]{background:var(--card);border-color:var(--line);box-shadow:0 14px 30px -22px rgba(77,3,22,.4)}
-.tab h3{font-size:var(--step-1);color:var(--ink);display:flex;align-items:baseline;gap:.6rem}
-.tab[aria-selected="true"] h3{color:var(--wine)}
-.tab p{color:var(--ink-2);font-size:.95rem;margin-top:.35rem;max-width:44ch}
-.tab:not([aria-selected="true"]) p{display:none}
+.tab .t{display:block;font-family:var(--display);font-weight:600;line-height:1.06;letter-spacing:-.022em;font-variation-settings:"opsz" 96,"SOFT" 0,"WONK" 0;font-size:var(--step-1);color:var(--ink)}
+.tab[aria-selected="true"] .t{color:var(--wine)}
+.tab .d{display:block;color:var(--ink-2);font-size:.95rem;margin-top:.35rem;max-width:44ch}
+.tab:not([aria-selected="true"]) .d{display:none}
 .tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .show-stage{position:relative;display:grid;place-items:center}
 .show-stage .arch{inset:4% 10% 0}
@@ -180,10 +186,10 @@ section{scroll-margin-top:80px}
   .plan-col{display:contents}.plan-col .sec-head{order:1}
   .plan-col .tabs{order:2;margin-inline:0;flex-direction:row;flex-wrap:wrap;gap:.5rem}
   .tab{padding:.55rem .95rem;border-radius:999px;border-color:var(--line)}
-  .tab h3{font-family:var(--body);font-size:.9rem;font-weight:600;letter-spacing:0}
+  .tab .t{font-family:var(--body);font-size:.9rem;font-weight:600;letter-spacing:0}
   .tab[aria-selected="true"]{background:var(--wine);border-color:var(--wine);box-shadow:none}
-  .tab[aria-selected="true"] h3{color:var(--on-wine)}
-  .tab p,.tab[aria-selected="true"] p{display:none}
+  .tab[aria-selected="true"] .t{color:var(--on-wine)}
+  .tab .d,.tab[aria-selected="true"] .d{display:none}
   .show-stage{order:3}
   .show-cap{display:block;order:4;color:var(--ink-2);text-align:center;max-width:40ch;margin-inline:auto}
 }
@@ -212,6 +218,10 @@ section{scroll-margin-top:80px}
 .perks span{color:var(--band-muted);font-size:.95rem}
 .kinds{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
 .kinds span{border:1px solid rgba(230,190,98,.4);color:var(--band-ink);border-radius:999px;padding:.35rem .85rem;font-size:.85rem}
+.band-cta{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin-top:2rem}
+.btn-gold{background:var(--band-gold);color:#2A0A12}
+.btn-gold:hover{background:#F0CF82}
+.band-cta small{color:var(--band-muted);font-size:.9rem}
 .band .stage .arch{background:rgba(255,247,238,.06)}
 .band .stage .arch::after{border-color:rgba(230,190,98,.35)}
 @media (max-width:900px){.band .wrap{grid-template-columns:1fr}}
@@ -279,7 +289,10 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
       <li><a href="#providers">For providers</a></li>
       <li><a href="/help/">Help</a></li>
     </ul>
-    <a class="btn btn-wine js-smart" href="#download">Get the app</a>
+    <div class="nav-actions">
+      <a class="nav-help" href="/help/">Help</a>
+      <a class="btn btn-wine js-smart" href="#download">Get the app</a>
+    </div>
   </div>
 </header>
 
@@ -335,13 +348,13 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
         <p>Weddings, birthdays, owambes and corporate dinners. Share it with your partner or planner and work on it together.</p>
       </div>
       <div class="tabs" role="tablist" aria-label="Planning tools">
-        <button class="tab" role="tab" aria-selected="true" data-shot="/assets/home/budget.webp" id="tab-budget"><h3>Budget</h3><p>Set a budget, log quotes and payments, and see what's left in naira at a glance.</p></button>
-        <button class="tab" role="tab" aria-selected="false" data-shot="/assets/home/guests.webp" id="tab-guests"><h3>Guest list &amp; RSVPs</h3><p>Import your list from a spreadsheet, send invites, track RSVPs and assign tables.</p></button>
-        <button class="tab" role="tab" aria-selected="false" data-shot="/assets/home/checkin.webp" id="tab-checkin"><h3>Check-in at the door</h3><p>Check guests in on the day, so you know exactly who has arrived.</p></button>
-        <button class="tab" role="tab" aria-selected="false" data-shot="/assets/home/workspace.webp" id="tab-workspace"><h3>Shared workspace</h3><p>Checklist, budget, guests and bookings together, with your team working alongside you.</p></button>
+        <button class="tab" role="tab" aria-selected="true" aria-controls="show-panel" data-shot="/assets/home/budget.webp" id="tab-budget"><span class="t">Budget</span><span class="d">Set a budget, log quotes and payments, and see what's left in naira at a glance.</span></button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/guests.webp" id="tab-guests"><span class="t">Guest list &amp; RSVPs</span><span class="d">Import your list from a spreadsheet, send invites, track RSVPs and assign tables.</span></button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/checkin.webp" id="tab-checkin"><span class="t">Check-in at the door</span><span class="d">Check guests in on the day, so you know exactly who has arrived.</span></button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="show-panel" data-shot="/assets/home/workspace.webp" id="tab-workspace"><span class="t">Shared workspace</span><span class="d">Checklist, budget, guests and bookings together, with your team working alongside you.</span></button>
       </div>
       </div>
-      <div class="show-stage" aria-live="polite">
+      <div class="show-stage" id="show-panel" role="tabpanel" aria-labelledby="tab-budget">
         <div class="arch"></div>
         <div class="phone"><img id="show-img" src="/assets/home/budget.webp" alt="StrictlyByIV budget screen" width="600" height="1298" loading="lazy" decoding="async"></div>
       </div>
@@ -378,6 +391,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
         <li><svg width="22" height="22"><use href="#i-check"/></svg><div><strong>Start free</strong><span>List for free. Upgrade to Pro when you want more.</span></div></li>
       </ul>
       <div class="kinds" aria-label="Who can list"><span>Caterers</span><span>Decorators</span><span>Photographers</span><span>DJs &amp; MCs</span><span>Event centres</span><span>Planners</span></div>
+      <div class="band-cta"><a class="btn btn-gold js-smart" href="#download">List your business, free</a><small>Set up your profile in the app.</small></div>
     </div>
     <div class="stage" aria-hidden="true">
       <div class="arch"></div>
@@ -423,7 +437,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
     </div>
     <div class="fcols">
       <div><h4>App</h4><a href="https://apps.apple.com/app/id6761930760">App Store</a><a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a><a href="#providers">For providers</a></div>
-      <div><h4>Support</h4><a href="/help/">Help centre</a><a href="/account/delete/">Delete your account</a><span style="display:block;padding-block:.25rem;user-select:all">support@strictlybyiv.com</span></div>
+      <div><h4>Support</h4><a href="/help/">Help centre</a><a href="/account/delete/">Delete your account</a><a href="mailto:support@strictlybyiv.com">support@strictlybyiv.com</a></div>
       <div><h4>Legal</h4><a href="/legal/terms/">Terms</a><a href="/legal/privacy/">Privacy</a><a href="/legal/payments-refunds-payouts/">Payments &amp; refunds</a><a href="/legal/community-guidelines/">Community guidelines</a></div>
     </div>
     <div class="legalline"><span>© 2026 DERVLABS LTD · RC 9030571</span><span>App Store is a service mark of Apple Inc. Google Play is a trademark of Google LLC.</span></div>
@@ -454,8 +468,9 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   function select(t){
     tabs.forEach(function(x){x.setAttribute("aria-selected",x===t?"true":"false");x.tabIndex=x===t?0:-1});
     img.style.opacity=0;
-    document.getElementById("show-cap").textContent=t.querySelector("p").textContent;
-    setTimeout(function(){img.src=t.dataset.shot;img.alt="StrictlyByIV "+t.querySelector("h3").textContent+" screen";img.onload=function(){img.style.opacity=1}},180);
+    document.getElementById("show-cap").textContent=t.querySelector(".d").textContent;
+    document.getElementById("show-panel").setAttribute("aria-labelledby",t.id);
+    setTimeout(function(){img.src=t.dataset.shot;img.alt="StrictlyByIV "+t.querySelector(".t").textContent+" screen";img.onload=function(){img.style.opacity=1}},180);
   }
   tabs.forEach(function(t,i){
     t.tabIndex=i===0?0:-1;
@@ -467,7 +482,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   });
   window.addEventListener("load",function(){tabs.forEach(function(t){var p=new Image();p.src=t.dataset.shot})});
 
-  try{new QRCode(document.getElementById("qrcode"),{text:"https://strictlybyiv.com/get",width:168,height:168,colorDark:"#4D0316",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){}
+  try{new QRCode(document.getElementById("qrcode"),{text:"https://www.strictlybyiv.com/get/",width:168,height:168,colorDark:"#4D0316",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){}
 })();
 </script>
 </body>
