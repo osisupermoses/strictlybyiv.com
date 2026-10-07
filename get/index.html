@@ -25,7 +25,9 @@
     var android = /Android/.test(ua);
     var ios = !android && (/iPhone|iPad|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1));
     var target = android ? "https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"
-      : ios ? "https://apps.apple.com/app/id6761930760"
+      // iOS 1.0 is in App Review: send iPhones to the download section, which counts down and
+      // switches to the App Store link by itself once Apple lists the app.
+      : ios ? "/#download"
       : "/#download";
     location.replace(target);
   })();

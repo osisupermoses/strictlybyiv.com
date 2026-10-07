@@ -20,7 +20,7 @@
 <meta property="og:image:alt" content="StrictlyByIV: Plan the whole event. Book people you can trust.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#4D0316">
-<meta name="apple-itunes-app" content="app-id=6761930760">
+<!-- apple-itunes-app smart banner removed while iOS 1.0 is in App Review; restore: <meta name="apple-itunes-app" content="app-id=6761930760"> -->
 <link rel="preload" as="image" href="/assets/home/explore.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -113,6 +113,13 @@ p{margin:0}
 .store small{font-size:.68rem;letter-spacing:.02em;opacity:.85}
 .store strong{font-size:1.12rem;font-weight:600;letter-spacing:-.01em}
 .store.primary{order:-1}
+/* App Store held until Apple lists the app: greyed, not a link, with the countdown inside the badge */
+.store.is-pending{background:#77706F;border-color:transparent;color:rgba(255,255,255,.94);cursor:not-allowed;padding-right:.7rem}
+.store.is-pending:hover{transform:none;box-shadow:none}
+.store .eta{display:block;align-self:center;margin-left:.2rem;padding:.32rem .55rem;border-radius:999px;background:rgba(255,255,255,.17);font-size:.74rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap}
+.btn.is-pending{background:var(--line);color:var(--ink-2);cursor:not-allowed;pointer-events:none}
+.eta-inline{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fcols .is-pending{color:var(--ink-3);cursor:default}
 .mobile-cta,.alt-store{display:none}
 .alt-store{font-size:.9rem;color:var(--ink-3);text-align:center;margin-top:-.2rem}
 .alt-store a{color:var(--ink-2);font-weight:600}
@@ -264,7 +271,7 @@ section{scroll-margin-top:80px}
 .qr #qrcode img,.qr #qrcode canvas{width:100%!important;height:100%!important}
 .qr strong{display:block;color:var(--ink)}
 .qr span{color:var(--ink-2);font-size:.9rem}
-@media (max-width:640px){.qr{display:none}}
+@media (max-width:640px){.qr{display:none}.download .stores{flex-direction:column;align-items:center}.download .store{width:244px;justify-content:center}}
 
 /* Footer */
 footer{padding-block:48px 40px;color:var(--ink-2);font-size:.9rem}
@@ -349,9 +356,9 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
       <p class="lede">Your checklist, budget and guest list in one app, with trusted vendors, venues and planners a tap away.</p>
       <div class="hero-cta">
         <a class="btn btn-wine mobile-cta js-smart" href="#download">Get StrictlyByIV, it's free</a>
-        <p class="alt-store" id="alt-store">Also on <a href="https://apps.apple.com/app/id6761930760">App Store</a> and <a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a></p>
+        <p class="alt-store" id="alt-store">Using an iPhone? On the App Store <span class="eta-inline" data-eta="phrase"></span></p>
         <div class="stores hero-stores" data-stores>
-          <a class="store" data-store="ios" href="https://apps.apple.com/app/id6761930760"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a>
+          <a class="store is-pending" data-store="ios" aria-disabled="true"><svg><use href="#i-apple"/></svg><span><small>Coming soon to the</small><strong>App Store</strong></span><span class="eta" data-eta="short"></span></a>
           <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"><svg><use href="#i-play"/></svg><span><small>Get it on</small><strong>Google Play</strong></span></a>
         </div>
       </div>
@@ -488,7 +495,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
     <h2>Start planning today.</h2>
     <p>Free on iPhone and Android.</p>
     <div class="stores" data-stores>
-      <a class="store" data-store="ios" href="https://apps.apple.com/app/id6761930760"><svg><use href="#i-apple"/></svg><span><small>Download on the</small><strong>App Store</strong></span></a>
+      <a class="store is-pending" data-store="ios" aria-disabled="true"><svg><use href="#i-apple"/></svg><span><small>Coming soon to the</small><strong>App Store</strong></span><span class="eta" data-eta="short"></span></a>
       <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"><svg><use href="#i-play"/></svg><span><small>Get it on</small><strong>Google Play</strong></span></a>
     </div>
     <div class="qr"><div id="qrcode" aria-label="QR code to download the app"></div><div><strong>Scan with your phone</strong><span>Opens the right store for your device.</span></div></div>
@@ -503,7 +510,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
       <p style="margin-top:1rem;max-width:34ch">Event planning and bookings for Nigeria. Made by DervLabs in Ibadan.</p>
     </div>
     <div class="fcols">
-      <div><h4>App</h4><a href="https://apps.apple.com/app/id6761930760">App Store</a><a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a><a href="#providers">For providers</a></div>
+      <div><h4>App</h4><a class="is-pending" data-ios-link aria-disabled="true">App Store <span class="eta-inline" data-eta="phrase"></span></a><a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a><a href="#providers">For providers</a></div>
       <div><h4>Support</h4><a href="/help/">Help centre</a><a href="/account/delete/">Delete your account</a><a href="mailto:support@strictlybyiv.com">support@strictlybyiv.com</a></div>
       <div><h4>Legal</h4><a href="/legal/terms/">Terms</a><a href="/legal/privacy/">Privacy</a><a href="/legal/payments-refunds-payouts/">Payments &amp; refunds</a><a href="/legal/community-guidelines/">Community guidelines</a></div>
     </div>
@@ -520,11 +527,49 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   var isAndroid=/Android/.test(ua);
   var isIOS=!isAndroid&&(/iPhone|iPad|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1));
   var platform=isIOS?"ios":isAndroid?"android":null;
-  if(platform){
-    document.querySelectorAll(".js-smart").forEach(function(a){a.href=platform==="ios"?IOS:ANDROID});
-    var alt=document.getElementById("alt-store");
-    alt.innerHTML=platform==="ios"?'Using Android? <a href="'+ANDROID+'">Get it on Google Play</a>':'Using an iPhone? <a href="'+IOS+'">Get it on the App Store</a>';
-    document.querySelectorAll('[data-store="'+platform+'"]').forEach(function(a){a.classList.add("primary")});
+  // iOS 1.0 is in App Review. Until Apple lists the app, App Store links are held and count down to
+  // IOS_ETA. Apple's public lookup is checked on load, so approval releases them with no redeploy;
+  // IOS_LIVE = true releases them by hand.
+  var IOS_LIVE=false, IOS_ETA=Date.parse("2026-10-08T18:00:00+01:00"), APP_ID="6761930760";
+  var iosLive=IOS_LIVE, cta=document.querySelector(".mobile-cta"), ctaText=cta.textContent;
+  // The badge pill ticks as a clock (26:14:05); sentences read naturally ("in 26h 14m").
+  function tick(){
+    var t=Math.max(0,Math.round((IOS_ETA-Date.now())/1000));
+    var h=Math.floor(t/3600),m=Math.floor(t%3600/60),s=t%60;
+    function two(n){return(n<10?"0":"")+n}
+    var clock=t?two(h)+":"+two(m)+":"+two(s):"Any moment";
+    var phrase=t?"in "+(h?h+"h "+two(m)+"m":m+"m "+two(s)+"s"):"any moment now";
+    document.querySelectorAll("[data-eta]").forEach(function(el){
+      el.textContent=el.dataset.eta==="phrase"?phrase:clock;
+    });
+  }
+  function render(){
+    document.querySelectorAll('[data-store="ios"]').forEach(function(a){
+      a.classList.toggle("is-pending",!iosLive);
+      if(iosLive){a.href=IOS;a.removeAttribute("aria-disabled");a.querySelector("small").textContent="Download on the";var e=a.querySelector(".eta");if(e)e.remove()}
+    });
+    var foot=document.querySelector("[data-ios-link]");
+    if(iosLive&&foot){foot.href=IOS;foot.classList.remove("is-pending");foot.removeAttribute("aria-disabled");foot.textContent="App Store"}
+    if(platform){
+      var heldIos=platform==="ios"&&!iosLive;
+      document.querySelectorAll(".js-smart").forEach(function(a){a.href=heldIos?"#download":(platform==="ios"?IOS:ANDROID)});
+      cta.classList.toggle("is-pending",heldIos);
+      if(heldIos){cta.innerHTML='On the App Store <span class="eta-inline" data-eta="phrase"></span>'}else{cta.textContent=ctaText}
+      var alt=document.getElementById("alt-store");
+      alt.innerHTML=platform==="ios"?'Using Android? <a href="'+ANDROID+'">Get it on Google Play</a>'
+        :iosLive?'Using an iPhone? <a href="'+IOS+'">Get it on the App Store</a>'
+        :'Using an iPhone? On the App Store <span class="eta-inline" data-eta="phrase"></span>';
+      document.querySelectorAll('[data-store="'+platform+'"]').forEach(function(a){a.classList.add("primary")});
+    }
+    tick();
+  }
+  render();
+  if(!iosLive){
+    var timer=setInterval(function(){if(iosLive)clearInterval(timer);else tick()},1000);
+    window.__sbivAppLookup=function(r){if(r&&r.resultCount>0&&!iosLive){iosLive=true;render()}};
+    var lookup=document.createElement("script");
+    lookup.src="https://itunes.apple.com/lookup?id="+APP_ID+"&country=ng&callback=__sbivAppLookup";
+    lookup.async=true;document.head.appendChild(lookup);
   }
   var nav=document.querySelector(".nav");
   function onScroll(){nav.classList.toggle("scrolled",window.scrollY>8)}
