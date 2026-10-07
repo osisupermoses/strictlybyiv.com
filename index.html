@@ -226,6 +226,18 @@ section{scroll-margin-top:80px}
   .book figure{flex:0 0 min(78%,320px);scroll-snap-align:start}
 }
 
+/* Who it's for */
+.who{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(32px,4vw,48px)}
+.who a{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,2.4vw,28px);text-decoration:none;transition:border-color .2s,transform .15s}
+.who a:hover{border-color:var(--wine);transform:translateY(-2px)}
+.who h3{font-size:var(--step-1);color:var(--ink)}
+.who p{color:var(--ink-2);font-size:.98rem;margin-top:.55rem;line-height:1.6}
+.who .more{margin-top:auto;padding-top:1rem;font-size:.92rem;font-weight:600;color:var(--wine)}
+.who-all{margin-top:clamp(20px,3vw,28px)}
+.who-all a{font-weight:600;color:var(--wine)}
+@media (max-width:860px){.who{grid-template-columns:1fr}}
+@media (max-width:640px){.who{gap:12px;margin-top:24px}.who a{padding:18px 18px 16px;border-radius:18px}.who p{font-size:.95rem;margin-top:.4rem}.who .more{padding-top:.65rem}.who-all{margin-top:18px}}
+
 /* Providers band */
 .band{background:var(--band);color:var(--band-ink);position:relative;overflow:hidden}
 .band .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,96px);align-items:center}
@@ -450,6 +462,22 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   </div>
 </section>
 
+<section class="sec money" id="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Who it's for</p>
+      <h2>For everyone behind the event.</h2>
+      <p>From a family naming ceremony to a church convention, and everyone you book to make it happen.</p>
+    </div>
+    <div class="who">
+      <a href="/who-its-for/#hosts"><h3>Families &amp; hosts</h3><p>Weddings, owambes, naming ceremonies, birthdays and burials, even if you're planning from abroad.</p><span class="more">For hosts →</span></a>
+      <a href="/who-its-for/#organisations"><h3>Organisations</h3><p>Companies, churches and mosques, schools, associations and government teams running conferences, dinners and launches.</p><span class="more">For organisations →</span></a>
+      <a href="/who-its-for/#providers"><h3>People who make events happen</h3><p>Planners, 39 kinds of vendor from gele stylists to power rental, and 25 kinds of venue.</p><span class="more">Every category →</span></a>
+    </div>
+    <p class="who-all"><a href="/who-its-for/">See the full list of who it's for</a></p>
+  </div>
+</section>
+
 <section class="sec band" id="providers">
   <div class="wrap">
     <div>
@@ -510,7 +538,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
       <p style="margin-top:1rem;max-width:34ch">Event planning and bookings for Nigeria. Made by DervLabs in Ibadan.</p>
     </div>
     <div class="fcols">
-      <div><h4>App</h4><a class="is-pending" data-ios-link aria-disabled="true">App Store <span class="eta-inline" data-eta="phrase"></span></a><a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a><a href="#providers">For providers</a></div>
+      <div><h4>App</h4><a class="is-pending" data-ios-link aria-disabled="true">App Store <span class="eta-inline" data-eta="phrase"></span></a><a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a><a href="/who-its-for/">Who it's for</a><a href="#providers">For providers</a></div>
       <div><h4>Support</h4><a href="/help/">Help centre</a><a href="/account/delete/">Delete your account</a><a href="mailto:support@strictlybyiv.com">support@strictlybyiv.com</a></div>
       <div><h4>Legal</h4><a href="/legal/terms/">Terms</a><a href="/legal/privacy/">Privacy</a><a href="/legal/payments-refunds-payouts/">Payments &amp; refunds</a><a href="/legal/community-guidelines/">Community guidelines</a></div>
     </div>
