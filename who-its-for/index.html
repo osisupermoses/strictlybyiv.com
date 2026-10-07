@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Who StrictlyByIV is for: hosts, organisations, planners, vendors and venues</title>
-<meta name="description" content="StrictlyByIV is for everyone behind a Nigerian event: couples and families, companies, churches and mosques, schools and associations, and the planners, 39 kinds of vendor and 25 kinds of venue they book.">
+<title>Who StrictlyByIV is for: hosts, planners, vendors, venues</title>
+<meta name="description" content="For everyone behind a Nigerian event: couples, families, companies, churches and mosques, and the planners, vendors and venues they book.">
 <link rel="canonical" href="https://www.strictlybyiv.com/who-its-for/">
 <link rel="icon" type="image/png" href="/assets/home/icon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -90,7 +90,8 @@ p{margin:0}
 @media (max-width:420px){.nav .wrap{gap:.6rem}.nav-actions{gap:.8rem}.nav .btn{padding:.7rem .95rem;font-size:.9rem}.wordmark{font-size:1.18rem;gap:.45rem}.wordmark img{width:30px;height:30px}}
 
 /* Page */
-section{scroll-margin-top:80px}
+/* Anything a jump link targets clears the sticky header, including the sub-blocks inside the providers section */
+section,[id]{scroll-margin-top:84px}
 .sec{padding-block:clamp(56px,8vw,104px)}
 .tint{background:var(--bg-2);border-block:1px solid var(--line)}
 .sec-head{max-width:660px}
@@ -117,6 +118,7 @@ section{scroll-margin-top:80px}
 .chips small{font-size:.8rem;color:var(--ink-3)}
 .note{margin-top:clamp(24px,3vw,36px);padding:1rem 1.2rem;border-radius:16px;background:var(--gold-soft);color:var(--ink);font-size:.98rem;max-width:72ch}
 .note strong{font-weight:600}
+.note+.note{margin-top:12px}
 
 .subhead{margin-top:clamp(44px,6vw,72px);padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line)}
 .subhead h3{font-size:var(--step-2);color:var(--wine)}
@@ -198,7 +200,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
     <div class="cards">
       <div class="card"><h3>Couples</h3><p>Traditional, white and court weddings. Keep the budget, guest list and vendors for every ceremony together, and plan with your partner and families.</p></div>
       <div class="card"><h3>Families</h3><p>Naming ceremonies, birthdays, anniversaries, burials and remembrance services. Share the plan with the family and give each person the part they're handling.</p></div>
-      <div class="card"><h3>Planning from abroad</h3><p>Organising a wedding or burial back home? Work from the same plan as family on the ground, book providers you can check, and see every payment.</p></div>
+      <div class="card"><h3>Planning from abroad</h3><p>Organising a wedding or burial back home? Work from the same plan as family on the ground, book providers with verified badges and real reviews, and see every payment.</p></div>
     </div>
   </div>
 </section>
@@ -264,6 +266,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
         <div class="cat"><h4>Faith spaces</h4><ul class="chips"><li>Church Hall</li><li>Mosque Hall</li><li>Chapel</li></ul></div>
         <div class="cat"><h4>Something different</h4><ul class="chips"><li>Private Estate</li><li>Art Gallery</li><li>Warehouse</li><li>Boat</li><li>Sports Club</li></ul></div>
       </div>
+      <p class="note"><strong>Something else?</strong> List under Other and describe your space.</p>
       <p class="note"><strong>More than one space, or a whole team?</strong> One account can be a planner, a vendor and a venue at once, and Pro lets you run several listings, such as every hall in a hotel.</p>
     </div>
   </div>
