@@ -283,6 +283,32 @@ section{scroll-margin-top:80px}
 .qr #qrcode img,.qr #qrcode canvas{width:100%!important;height:100%!important}
 .qr strong{display:block;color:var(--ink)}
 .qr span{color:var(--ink-2);font-size:.9rem}
+/* Email updates: a quiet second option under the store badges. Posts to Brevo (double opt-in). */
+.keep{margin-top:2.4rem;width:min(100%,560px);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 24px;text-align:left}
+.keep h3{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--ink);letter-spacing:-.01em}
+.download .keep p{margin-top:.35rem;font-size:.98rem;color:var(--ink-2)}
+.keep-row{display:flex;gap:.6rem;margin-top:1rem}
+.keep input[type=email]{flex:1;min-width:0;font:inherit;font-size:1rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.8rem 1.1rem}
+.keep input[type=email]::placeholder{color:var(--ink-3)}
+.keep input[type=email]:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:transparent}
+.keep .btn{flex:none}
+.keep .btn[disabled]{opacity:.7;cursor:progress}
+.keep fieldset{border:0;padding:0;margin:.85rem 0 0;min-width:0;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;font-size:.92rem;color:var(--ink-2)}
+.keep legend{float:left;padding:0;width:100%;margin-bottom:.3rem;font-size:.88rem;color:var(--ink-3)}
+.keep label.opt{display:inline-flex;align-items:center;gap:.45rem;cursor:pointer}
+.keep input[type=radio]{accent-color:var(--wine);width:16px;height:16px;margin:0}
+.download .keep p.keep-fine{margin-top:.9rem;font-size:.84rem;color:var(--ink-3)}
+.keep-fine a{color:var(--ink-2)}
+.download .keep p.keep-msg{margin-top:.8rem;font-size:.94rem;color:var(--ink)}
+.keep-msg:empty{display:none}
+.download .keep p.keep-msg.is-error{color:#B3261E}
+.keep .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.keep.is-done form{display:none}
+.keep-done{display:none}
+.keep.is-done .keep-done{display:block}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .download .keep p.keep-msg.is-error{color:#F2B8B5}}
+:root[data-theme="dark"] .download .keep p.keep-msg.is-error{color:#F2B8B5}
+@media (max-width:640px){.keep{margin-top:2rem;padding:20px 18px}.keep-row{flex-direction:column}.keep .btn{width:100%;padding-block:.95rem}}
 @media (max-width:640px){.qr{display:none}.download .stores{flex-direction:column;align-items:center}.download .store{width:244px;justify-content:center}}
 
 /* Footer */
@@ -529,6 +555,30 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
       <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"><svg><use href="#i-play"/></svg><span><small>Get it on</small><strong>Google Play</strong></span></a>
     </div>
     <div class="qr"><div id="qrcode" aria-label="QR code to download the app"></div><div><strong>Scan with your phone</strong><span>Opens the right store for your device.</span></div></div>
+    <div class="keep" id="updates">
+      <h3>Stay in the loop</h3>
+      <p>Event ideas, new vendors and venues, and what's new in the app. Once or twice a month.</p>
+      <form id="keep-form" method="POST" action="https://11ef5960.sibforms.com/serve/MUIFANbo9RuxhV7TbGU-bzgqcS23msC8YkF9OQ-7k2zNItoIfks9ULpcSTg42QQ16pHUWEJ6Sfk4ATe5lm8aIE3UqWpFTnnDAYyNFIxVud67xyDCpnZ7rGrkPGk_hFk894GpGZFlOeDZwdD4SmP3RimG5gzTWWBKo9Sw3JL2Yvuo4pg9yJyP-g3GRlddTa4CC6PG4SqMfay-LaPvkw==" novalidate>
+        <div class="keep-row">
+          <label class="hp" for="keep-email">Email address</label>
+          <input type="email" id="keep-email" name="EMAIL" placeholder="Your email" autocomplete="email" required>
+          <button class="btn btn-wine" type="submit">Keep me posted</button>
+        </div>
+        <fieldset>
+          <legend>Optional: which sounds like you?</legend>
+          <label class="opt"><input type="radio" name="AUDIENCE" value="1"> I'm planning events</label>
+          <label class="opt"><input type="radio" name="AUDIENCE" value="2"> I'm a vendor, venue or planner</label>
+        </fieldset>
+        <div style="display:none" aria-hidden="true"><input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="locale" value="en">
+        <input type="hidden" name="html_type" value="simple">
+        <p class="keep-msg" role="status" aria-live="polite"></p>
+        <p class="keep-fine">No spam. Unsubscribe anytime. See our <a href="/legal/privacy/#email-updates">privacy policy</a>.</p>
+      </form>
+      <div class="keep-done" tabindex="-1">
+        <p class="keep-msg">Almost there. Check your inbox and tap the link in our email to confirm. If it's not there in a few minutes, look in spam or promotions.</p>
+      </div>
+    </div>
   </div>
 </section>
 </main>
@@ -548,6 +598,30 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   </div>
 </footer>
 
+<script>
+// Email updates: submit to Brevo in place (it allows our origin and answers JSON), then show the
+// confirm-your-email note. Without JS the form posts normally and Brevo shows its own page.
+(function(){
+  var box=document.getElementById("updates"),form=document.getElementById("keep-form");
+  if(!form||!window.fetch||!window.FormData)return;
+  var email=form.querySelector("#keep-email"),btn=form.querySelector("button"),msg=form.querySelector(".keep-msg");
+  function say(t,err){msg.textContent=t;msg.classList.toggle("is-error",!!err)}
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var v=email.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){say("Please enter a valid email address.",true);email.focus();return}
+    email.value=v;btn.disabled=true;btn.textContent="Sending…";say("");
+    fetch(form.action+"?isAjax=1",{method:"POST",body:new FormData(form)})
+      .then(function(r){return r.json().catch(function(){return{}}).then(function(d){return{ok:r.ok,d:d}})})
+      .then(function(res){
+        if(res.ok&&res.d.success!==false){box.classList.add("is-done");box.querySelector(".keep-done").focus();return}
+        throw 0;
+      })
+      .catch(function(){say("That didn't go through. Please try again in a moment.",true)})
+      .then(function(){btn.disabled=false;btn.textContent="Keep me posted"});
+  });
+})();
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 (function(){
