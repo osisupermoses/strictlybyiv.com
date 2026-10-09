@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#4D0316">
   <script>(function(){try{var t=localStorage.getItem("sbiv-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <!-- apple-itunes-app smart banner removed while iOS 1.0 is in App Review; restore: <meta name="apple-itunes-app" content="app-id=6761930760"> -->
-<link rel="preload" as="image" href="/assets/film/hero-loop-poster.webp" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/film/hero-loop-poster.webp?v=1" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Source+Sans+3:wght@400;500;600;700&display=swap">
@@ -362,7 +362,8 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
 .stage-play svg{width:14px;height:14px;fill:currentColor}
 .stage-play:hover{background:var(--wine-2)}
 .stage-play:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-dialog.film{padding:0;border:0;background:transparent;width:min(1120px,94vw);max-width:none;max-height:none;overflow:visible}
+dialog.film{padding:0;border:0;background:transparent;width:min(1120px,94vw,calc((100vh - 24px)*16/9));max-width:none;max-height:none;overflow:visible}
+@supports (height:100dvh){dialog.film{width:min(1120px,94vw,calc((100dvh - 24px)*16/9))}}
 dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
 .film-box{position:relative;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
 .film-video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
@@ -438,7 +439,7 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
     </div>
     <div class="stage">
       <div class="arch" aria-hidden="true"></div>
-      <div class="phone" aria-hidden="true"><video class="hero-loop" muted loop playsinline disablepictureinpicture preload="none" width="600" height="1298" poster="/assets/film/hero-loop-poster.webp"><source src="/assets/film/hero-loop.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'><source src="/assets/film/hero-loop.h264.mp4" type="video/mp4"></video></div>
+      <div class="phone" aria-hidden="true"><video class="hero-loop" muted loop playsinline disablepictureinpicture preload="none" width="600" height="1298" poster="/assets/film/hero-loop-poster.webp?v=1"><source src="/assets/film/hero-loop.av1.mp4?v=1" type='video/mp4; codecs="av01.0.05M.08"'><source src="/assets/film/hero-loop.h264.mp4?v=1" type="video/mp4"></video></div>
       <button class="stage-play" type="button" data-film-open aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>Watch how it works</button>
       <div class="chip chip-2" aria-hidden="true"><div class="k">Verified venue</div><div class="v">The Grand Orchid Hall</div><div class="s">Eti-Osa, Lagos · ★ 4.5</div></div>
       <div class="chip chip-1" aria-hidden="true"><div class="k"><span class="dot"></span>Deposit held</div><div class="v">₦850,000</div><div class="s">Released after your event, or sooner if you say so</div></div>
@@ -449,9 +450,9 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
 <dialog class="film" id="film" aria-label="How StrictlyByIV works">
   <div class="film-box">
     <button class="film-close" type="button" data-film-close aria-label="Close video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-    <video class="film-video" controls playsinline preload="none" width="1920" height="1080" data-poster="/assets/film/film-poster.webp">
-      <source src="/assets/film/film.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"'>
-      <source src="/assets/film/film.h264.mp4" type="video/mp4">
+    <video class="film-video" controls playsinline preload="none" width="1920" height="1080" data-poster="/assets/film/film-poster.webp?v=1">
+      <source src="/assets/film/film.av1.mp4?v=1" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="/assets/film/film.h264.mp4?v=1" type="video/mp4">
     </video>
     <div class="film-end" hidden>
       <p class="film-end-title">Plan it. Book it. Relax.</p>
@@ -773,7 +774,7 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
   if(!dlg)return;
   var v=dlg.querySelector(".film-video"),end=dlg.querySelector(".film-end"),get=dlg.querySelector(".film-get"),opener=null;
   if(typeof dlg.showModal!=="function"){
-    openers.forEach(function(b){b.addEventListener("click",function(){location.href="/assets/film/film.h264.mp4"})});
+    openers.forEach(function(b){b.addEventListener("click",function(){location.href="/assets/film/film.h264.mp4?v=1"})});
     return;
   }
   function start(){end.hidden=true;try{v.currentTime=0}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){})}
