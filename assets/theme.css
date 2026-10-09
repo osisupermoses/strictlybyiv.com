@@ -1,0 +1,90 @@
+/* Theme control: Auto / Light / Dark.
+   Expanded screens get the sliding pill (the app's own component); Medium and Compact get a
+   one-button dial that cycles. The choice lives on <html data-theme>, which every page's tokens already
+   honour, and in localStorage under "sbiv-theme" (absent = Auto). See /assets/theme.js. */
+
+.theme-ctl { display: inline-flex; align-items: center; flex: none; color: var(--ink-2); }
+.theme-ctl svg { display: block; }
+
+/* Sliding pill */
+.theme-pill {
+  position: relative; display: inline-flex; padding: 3px;
+  border: 1px solid var(--line); border-radius: 999px;
+  background: color-mix(in srgb, var(--card) 70%, transparent);
+}
+.theme-pill button {
+  position: relative; z-index: 1; width: 30px; height: 30px; padding: 0;
+  display: grid; place-items: center; border: 0; border-radius: 50%;
+  background: none; color: var(--ink-3); cursor: pointer; transition: color .2s;
+}
+.theme-pill button:hover { color: var(--wine); }
+.theme-pill button[aria-pressed="true"] { color: var(--on-wine); }
+.theme-pill svg { width: 16px; height: 16px; }
+.theme-pill .thumb {
+  position: absolute; top: 3px; left: 3px; width: 30px; height: 30px; border-radius: 50%;
+  background: var(--wine); transition: transform .3s cubic-bezier(.2, .8, .2, 1);
+}
+.theme-pill[data-mode="light"] .thumb { transform: translateX(30px); }
+.theme-pill[data-mode="dark"] .thumb { transform: translateX(60px); }
+
+/* Dial */
+.theme-dial {
+  position: relative; display: none; width: 38px; height: 38px; padding: 0;
+  place-items: center; border: 1px solid var(--line); border-radius: 50%;
+  background: color-mix(in srgb, var(--card) 70%, transparent); color: inherit;
+  cursor: pointer; transition: border-color .2s, color .2s, transform .15s;
+}
+.theme-dial:hover { border-color: var(--wine); color: var(--wine); }
+.theme-dial:active { transform: scale(.94); }
+.theme-dial svg { width: 18px; height: 18px; }
+.theme-dial .ic {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  opacity: 0; transform: rotate(-90deg) scale(.6);
+  transition: opacity .25s, transform .35s cubic-bezier(.2, .8, .2, 1);
+}
+.theme-dial[data-mode="auto"] .ic-auto,
+.theme-dial[data-mode="light"] .ic-light,
+.theme-dial[data-mode="dark"] .ic-dark { opacity: 1; transform: none; }
+.theme-tip {
+  position: absolute; top: calc(100% + 8px); right: 0; z-index: 30;
+  transform: translateY(-4px); white-space: nowrap; pointer-events: none;
+  padding: .3rem .6rem; border-radius: 999px; background: var(--ink); color: var(--bg);
+  font-size: .78rem; font-weight: 600; opacity: 0; transition: opacity .2s, transform .2s;
+}
+.theme-dial.show-tip .theme-tip { opacity: 1; transform: none; }
+
+.theme-ctl button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* Same split as the app's window size classes: Expanded (840px+) gets the pill,
+   Medium and Compact get the dial. */
+@media (max-width: 839.98px) {
+  .theme-pill { display: none; }
+  .theme-dial { display: inline-grid; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-pill .thumb, .theme-dial .ic, .theme-tip { transition: none; }
+}
+
+/* Homepage-style nav (.nav): never squeeze the wordmark, whose text otherwise spills into the
+   next item; give the dial room on phones. Help stays in the footer and the FAQ. */
+.nav .wordmark { flex-shrink: 0; }
+@media (max-width: 440px) {
+  .nav .nav-help { display: none; }
+  .nav .theme-dial { width: 36px; height: 36px; }
+}
+@media (max-width: 360px) {
+  .nav .wrap { gap: .5rem; }
+  .nav .nav-actions { gap: .5rem; }
+  .nav .wordmark { font-size: 1.04rem; gap: .4rem; }
+  .nav .wordmark img { width: 28px; height: 28px; }
+  .nav .theme-dial { width: 34px; height: 34px; }
+  .nav .btn { padding: .62rem .8rem; font-size: .86rem; }
+}
+
+/* Help and legal header (.site-header): links and control together on the right; on phones,
+   where the header stacks, the dial sits top-right beside the brand. */
+.site-header > nav { margin-left: auto; }
+@media (max-width: 520px) {
+  .site-header .theme-ctl { position: absolute; top: 12px; right: var(--gutter); }
+}
