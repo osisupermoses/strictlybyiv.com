@@ -22,7 +22,7 @@
 <meta name="theme-color" content="#4D0316">
   <script>(function(){try{var t=localStorage.getItem("sbiv-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
 <!-- apple-itunes-app smart banner removed while iOS 1.0 is in App Review; restore: <meta name="apple-itunes-app" content="app-id=6761930760"> -->
-<link rel="preload" as="image" href="/assets/home/explore.webp" fetchpriority="high">
+<link rel="preload" as="image" href="/assets/film/hero-loop-poster.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Source+Sans+3:wght@400;500;600;700&display=swap">
@@ -131,7 +131,7 @@ p{margin:0}
 .arch{position:absolute;inset:6% 8% 0;background:var(--arch);border-radius:999px 999px 28px 28px}
 .arch::after{content:"";position:absolute;inset:14px;border:1px solid var(--gold-line);border-radius:999px 999px 18px 18px;opacity:.7}
 .phone{position:relative;width:min(300px,72vw);aspect-ratio:600/1298;background:var(--phone);border-radius:46px;padding:10px;box-shadow:var(--shadow)}
-.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:37px}
+.phone>img,.phone>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:37px;background:var(--bg)}
 .chip{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:.8rem 1rem;box-shadow:0 18px 40px -22px rgba(77,3,22,.45);font-size:.85rem;line-height:1.35;max-width:220px}
 .chip .k{font-size:.8rem;color:var(--ink-3);font-weight:600}
 .chip .v{font-family:var(--display);font-size:1.25rem;font-weight:400;color:var(--wine);font-variant-numeric:tabular-nums}
@@ -144,7 +144,7 @@ p{margin:0}
   .stage{margin-top:1rem}
   .chip-1{left:0}.chip-2{right:0}
 }
-@media (max-width:640px){.chip{max-width:150px;padding:.55rem .75rem;font-size:.78rem}.chip .v{font-size:1rem}.chip .s{display:none}.chip-1{bottom:6%}.chip-2{top:4%}}
+@media (max-width:640px){.chip{max-width:150px;padding:.55rem .75rem;font-size:.78rem}.chip .v{font-size:1rem}.chip .s{display:none}.chip-1{bottom:6%}.chip-2{top:36%}}
 
 /* Section scaffolding */
 section{scroll-margin-top:80px}
@@ -330,7 +330,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   .timeline,.book{margin-top:28px}
   .timeline{gap:1.4rem}
   .phone{width:min(250px,64vw);border-radius:40px;padding:9px}
-  .phone img{border-radius:32px}
+  .phone>img,.phone>video{border-radius:32px}
   .showcase{gap:18px}
   .perks{margin-top:1.5rem;gap:.9rem}
   .points{margin-top:1.4rem;gap:1rem}
@@ -350,6 +350,36 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   .fcols a{padding-block:.2rem}
   .legalline{padding-top:1rem}
 }
+
+/* Homepage film: watch button, dialog player, end-of-film actions */
+.watch-btn{display:inline-flex;align-items:center;gap:.75rem;align-self:flex-start;background:none;border:0;padding:.25rem .25rem .25rem 0;cursor:pointer;font:600 1rem/1.25 var(--body);color:var(--wine);text-align:left}
+.watch-btn .play{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);box-shadow:0 10px 24px -14px rgba(77,3,22,.5);transition:transform .2s}
+.watch-btn .play svg{width:18px;height:18px;fill:var(--wine);margin-left:3px}
+.watch-btn small{display:block;font-weight:500;font-size:.86rem;color:var(--ink-3)}
+.watch-btn:hover .play{transform:scale(1.07)}
+.watch-btn:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:14px}
+.stage-play{position:absolute;left:0;right:0;margin-inline:auto;width:max-content;top:58%;z-index:3;display:flex;align-items:center;gap:.55rem;white-space:nowrap;padding:.75rem 1.2rem .75rem 1rem;border:0;border-radius:999px;background:var(--wine);color:var(--on-wine);font:600 .95rem/1 var(--body);box-shadow:0 16px 34px -14px rgba(77,3,22,.6);cursor:pointer;animation:rise .7s .8s cubic-bezier(.2,.7,.2,1) both;transition:background .2s}
+.stage-play svg{width:14px;height:14px;fill:currentColor}
+.stage-play:hover{background:var(--wine-2)}
+.stage-play:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+dialog.film{padding:0;border:0;background:transparent;width:min(1120px,94vw);max-width:none;max-height:none;overflow:visible}
+dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.film-box{position:relative;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 40px 90px -30px rgba(0,0,0,.6)}
+.film-video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000}
+.film-close{position:absolute;top:12px;right:12px;z-index:2;width:42px;height:42px;border-radius:50%;border:0;background:rgba(20,10,13,.62);color:#fff;cursor:pointer;display:grid;place-items:center}
+.film-close svg{width:18px;height:18px;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;fill:none}
+.film-close:focus-visible,.film-again:focus-visible,.film-get:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.film-end{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem;padding:1.25rem;text-align:center;background:var(--bg)}
+.film-end[hidden]{display:none}
+.film-end-title{font-family:var(--display);font-size:clamp(1.5rem,4.2vw,2.7rem);line-height:1.1;color:var(--wine)}
+.film-end-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem}
+.film-again{background:transparent;color:var(--wine);box-shadow:inset 0 0 0 1px var(--line)}
+.film-qr{display:flex;align-items:center;gap:1rem;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 16px 12px 12px}
+.film-qr #film-qrcode{width:88px;height:88px;background:#fff;border-radius:10px;padding:6px}
+.film-qr #film-qrcode img,.film-qr #film-qrcode canvas{width:100%!important;height:100%!important}
+.film-qr strong{display:block;color:var(--ink)}
+.film-qr span{color:var(--ink-2);font-size:.88rem}
+@media (max-width:640px){.watch-btn{align-self:center}.film-qr{display:none}.film-box{border-radius:12px}.film-end{gap:.8rem}}
 
 /* Entrance: visible at rest, a gentle rise on load only */
 @keyframes rise{from{transform:translateY(14px);opacity:.001}to{transform:none;opacity:1}}
@@ -402,17 +432,37 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
           <a class="store is-pending" data-store="ios" aria-disabled="true"><svg><use href="#i-apple"/></svg><span><small>Coming soon to the</small><strong>App Store</strong></span><span class="eta" data-eta="short"></span></a>
           <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"><svg><use href="#i-play"/></svg><span><small>Get it on</small><strong>Google Play</strong></span></a>
         </div>
+        <button class="watch-btn" type="button" data-film-open aria-haspopup="dialog"><span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span><span>Watch how it works <small>1:26 · see a real booking, start to finish</small></span></button>
       </div>
       <p class="promise"><svg width="20" height="20"><use href="#i-shield"/></svg>Your payment is held until after your event, unless you choose to release it sooner.</p>
     </div>
-    <div class="stage" aria-hidden="true">
-      <div class="arch"></div>
-      <div class="phone"><img src="/assets/home/explore.webp" alt="" width="600" height="1298" fetchpriority="high" decoding="async"></div>
-      <div class="chip chip-2"><div class="k">Verified venue</div><div class="v">The Grand Orchid Hall</div><div class="s">Eti-Osa, Lagos · ★ 4.5</div></div>
-      <div class="chip chip-1"><div class="k"><span class="dot"></span>Deposit held</div><div class="v">₦850,000</div><div class="s">Released after your event, or sooner if you say so</div></div>
+    <div class="stage">
+      <div class="arch" aria-hidden="true"></div>
+      <div class="phone" aria-hidden="true"><video class="hero-loop" muted loop playsinline disablepictureinpicture preload="none" width="600" height="1298" poster="/assets/film/hero-loop-poster.webp"><source src="/assets/film/hero-loop.av1.mp4" type='video/mp4; codecs="av01.0.05M.08"'><source src="/assets/film/hero-loop.h264.mp4" type="video/mp4"></video></div>
+      <button class="stage-play" type="button" data-film-open aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>Watch how it works</button>
+      <div class="chip chip-2" aria-hidden="true"><div class="k">Verified venue</div><div class="v">The Grand Orchid Hall</div><div class="s">Eti-Osa, Lagos · ★ 4.5</div></div>
+      <div class="chip chip-1" aria-hidden="true"><div class="k"><span class="dot"></span>Deposit held</div><div class="v">₦850,000</div><div class="s">Released after your event, or sooner if you say so</div></div>
     </div>
   </div>
 </section>
+
+<dialog class="film" id="film" aria-label="How StrictlyByIV works">
+  <div class="film-box">
+    <button class="film-close" type="button" data-film-close aria-label="Close video"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <video class="film-video" controls playsinline preload="none" width="1920" height="1080" data-poster="/assets/film/film-poster.webp">
+      <source src="/assets/film/film.av1.mp4" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="/assets/film/film.h264.mp4" type="video/mp4">
+    </video>
+    <div class="film-end" hidden>
+      <p class="film-end-title">Plan it. Book it. Relax.</p>
+      <div class="film-end-actions">
+        <a class="btn btn-wine js-smart film-get" href="#download">Get the app, it's free</a>
+        <button class="btn film-again" type="button">Watch again</button>
+      </div>
+      <div class="film-qr"><div id="film-qrcode" aria-label="QR code to download StrictlyByIV"></div><span><strong>Scan with your phone</strong>Opens the right store for your device.</span></div>
+    </div>
+  </div>
+</dialog>
 
 <section class="sec money" id="protection">
   <div class="wrap">
@@ -702,6 +752,44 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   window.addEventListener("load",function(){tabs.forEach(function(t){var p=new Image();p.src=t.dataset.shot})});
 
   try{new QRCode(document.getElementById("qrcode"),{text:"https://www.strictlybyiv.com/get/",width:168,height:168,colorDark:"#4D0316",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){}
+})();
+</script>
+<script>
+(function(){
+  var loop=document.querySelector(".hero-loop");
+  if(loop){
+    var still=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var save=navigator.connection&&navigator.connection.saveData;
+    if(!still&&!save){
+      loop.muted=true;loop.preload="auto";
+      var play=function(){var p=loop.play();if(p&&p.catch)p.catch(function(){})};
+      if("IntersectionObserver" in window){
+        new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)play();else loop.pause()})}).observe(loop);
+      }else{play()}
+    }
+  }
+
+  var dlg=document.getElementById("film"),openers=document.querySelectorAll("[data-film-open]");
+  if(!dlg)return;
+  var v=dlg.querySelector(".film-video"),end=dlg.querySelector(".film-end"),get=dlg.querySelector(".film-get"),opener=null;
+  if(typeof dlg.showModal!=="function"){
+    openers.forEach(function(b){b.addEventListener("click",function(){location.href="/assets/film/film.h264.mp4"})});
+    return;
+  }
+  function start(){end.hidden=true;try{v.currentTime=0}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){})}
+  openers.forEach(function(b){b.addEventListener("click",function(){opener=b;if(!v.poster)v.poster=v.dataset.poster;v.preload="auto";dlg.showModal();start()})});
+  // Close explicitly (pause first) rather than trusting the dialog's close event, which some
+  // browsers deliver late or not at all; the event stays as a backup.
+  function shut(){v.pause();if(dlg.open)dlg.close();if(opener){opener.focus();opener=null}}
+  dlg.querySelector("[data-film-close]").addEventListener("click",shut);
+  dlg.addEventListener("click",function(e){if(e.target===dlg)shut()});
+  dlg.addEventListener("cancel",function(e){e.preventDefault();shut()});
+  dlg.addEventListener("close",function(){v.pause()});
+  v.addEventListener("ended",function(){end.hidden=false;get.focus()});
+  v.addEventListener("play",function(){end.hidden=true});
+  dlg.querySelector(".film-again").addEventListener("click",start);
+  get.addEventListener("click",function(){if(get.getAttribute("href").charAt(0)==="#")shut()});
+  try{new QRCode(document.getElementById("film-qrcode"),{text:"https://www.strictlybyiv.com/get/",width:168,height:168,colorDark:"#4D0316",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M})}catch(e){}
 })();
 </script>
 <script src="/assets/theme.js?v=2" defer></script>
