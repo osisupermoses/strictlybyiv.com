@@ -3,6 +3,11 @@
    one-button dial that cycles. The choice lives on <html data-theme>, which every page's tokens already
    honour, and in localStorage under "sbiv-theme" (absent = Auto). See /assets/theme.js. */
 
+/* A forced choice also sets the browser's own parts (scrollbars, inputs, autofill), which the
+   pages' "light dark" meta would otherwise take from the device. */
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
 .theme-ctl { display: inline-flex; align-items: center; flex: none; color: var(--ink-2); }
 .theme-ctl svg { display: block; }
 
@@ -18,14 +23,18 @@
   background: none; color: var(--ink-3); cursor: pointer; transition: color .2s;
 }
 .theme-pill button:hover { color: var(--wine); }
-.theme-pill button[aria-pressed="true"] { color: var(--on-wine); }
 .theme-pill svg { width: 16px; height: 16px; }
 .theme-pill .thumb {
   position: absolute; top: 3px; left: 3px; width: 30px; height: 30px; border-radius: 50%;
   background: var(--wine); transition: transform .3s cubic-bezier(.2, .8, .2, 1);
 }
-.theme-pill[data-mode="light"] .thumb { transform: translateX(30px); }
-.theme-pill[data-mode="dark"] .thumb { transform: translateX(60px); }
+/* State comes from <html data-theme> (set in <head> before paint), not from the script, so a
+   saved choice is drawn correctly on first paint instead of sliding into place on every load. */
+:root:not([data-theme]) .theme-pill [data-set="auto"],
+:root[data-theme="light"] .theme-pill [data-set="light"],
+:root[data-theme="dark"] .theme-pill [data-set="dark"] { color: var(--on-wine); }
+:root[data-theme="light"] .theme-pill .thumb { transform: translateX(30px); }
+:root[data-theme="dark"] .theme-pill .thumb { transform: translateX(60px); }
 
 /* Dial */
 .theme-dial {
@@ -42,9 +51,9 @@
   opacity: 0; transform: rotate(-90deg) scale(.6);
   transition: opacity .25s, transform .35s cubic-bezier(.2, .8, .2, 1);
 }
-.theme-dial[data-mode="auto"] .ic-auto,
-.theme-dial[data-mode="light"] .ic-light,
-.theme-dial[data-mode="dark"] .ic-dark { opacity: 1; transform: none; }
+:root:not([data-theme]) .theme-dial .ic-auto,
+:root[data-theme="light"] .theme-dial .ic-light,
+:root[data-theme="dark"] .theme-dial .ic-dark { opacity: 1; transform: none; }
 .theme-tip {
   position: absolute; top: calc(100% + 8px); right: 0; z-index: 30;
   transform: translateY(-4px); white-space: nowrap; pointer-events: none;
@@ -84,7 +93,11 @@
 
 /* Help and legal header (.site-header): links and control together on the right; on phones,
    where the header stacks, the dial sits top-right beside the brand. */
-.site-header > nav { margin-left: auto; }
+@media (min-width: 521px) {
+  .site-header > nav { margin-left: auto; }
+  /* 38px control in a header sized by the 34px brand mark: overhang instead of growing it. */
+  .site-header .theme-ctl { margin-block: -2px; }
+}
 @media (max-width: 520px) {
   .site-header .theme-ctl { position: absolute; top: 12px; right: var(--gutter); }
 }
