@@ -128,6 +128,7 @@ p{margin:0}
 
 /* Arch + phone */
 .stage{position:relative;display:grid;place-items:center;min-width:0}
+.hero .stage{padding-bottom:39px}
 .arch{position:absolute;inset:6% 8% 0;background:var(--arch);border-radius:999px 999px 28px 28px}
 .arch::after{content:"";position:absolute;inset:14px;border:1px solid var(--gold-line);border-radius:999px 999px 18px 18px;opacity:.7}
 .phone{position:relative;width:min(300px,72vw);aspect-ratio:600/1298;background:var(--phone);border-radius:46px;padding:10px;box-shadow:var(--shadow)}
@@ -135,16 +136,15 @@ p{margin:0}
 .chip{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:.8rem 1rem;box-shadow:0 18px 40px -22px rgba(77,3,22,.45);font-size:.85rem;line-height:1.35;max-width:220px}
 .chip .k{font-size:.8rem;color:var(--ink-3);font-weight:600}
 .chip .v{font-family:var(--display);font-size:1.25rem;font-weight:400;color:var(--wine);font-variant-numeric:tabular-nums}
-.chip .s{color:var(--ink-2)}
-.chip-1{left:-2%;bottom:16%}
-.chip-2{right:-1%;top:18%}
+/* Under the phone, on the bezel only: anywhere on the screen it hides the loop's key moments */
+.chip-1{left:0;right:0;bottom:0;margin-inline:auto;width:max-content;max-width:92%;padding:.6rem 1.1rem;text-align:center}
+.chip-1 .k,.chip-1 .v{display:inline}.chip-1 .v{margin-left:.45rem}
 .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#3E7A4B;margin-right:.35rem;vertical-align:middle}
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
   .stage{margin-top:1rem}
-  .chip-1{left:0}.chip-2{right:0}
 }
-@media (max-width:640px){.chip{max-width:150px;padding:.55rem .75rem;font-size:.78rem}.chip .v{font-size:1rem}.chip .s{display:none}.chip-1{bottom:6%}.chip-2{top:36%}}
+@media (max-width:640px){.hero .stage{padding-bottom:33px}.chip{padding:.5rem .9rem;font-size:.78rem}.chip .v{font-size:1rem}}
 
 /* Section scaffolding */
 section{scroll-margin-top:80px}
@@ -388,7 +388,6 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
 .hero-copy>*:nth-child(2){animation-delay:.06s}.hero-copy>*:nth-child(3){animation-delay:.12s}.hero-copy>*:nth-child(4){animation-delay:.18s}.hero-copy>*:nth-child(5){animation-delay:.24s}
 .hero .phone{animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
 .chip{animation:rise .7s .5s cubic-bezier(.2,.7,.2,1) both}
-.chip-2{animation-delay:.65s}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"StrictlyByIV","legalName":"DERVLABS LTD","url":"https://www.strictlybyiv.com/","logo":"https://www.strictlybyiv.com/assets/strictlybyiv-app-icon.png","email":"support@strictlybyiv.com"},{"@type":"MobileApplication","name":"StrictlyByIV: Event Planner","operatingSystem":"iOS, Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"},"downloadUrl":["https://apps.apple.com/app/id6761930760","https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"]}]}</script>
   <link rel="stylesheet" href="/assets/theme.css?v=2" />
@@ -441,8 +440,7 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
       <div class="arch" aria-hidden="true"></div>
       <div class="phone" aria-hidden="true"><video class="hero-loop" muted loop playsinline disablepictureinpicture preload="none" width="600" height="1298" poster="/assets/film/hero-loop-poster.webp?v=1"><source src="/assets/film/hero-loop.av1.mp4?v=1" type='video/mp4; codecs="av01.0.05M.08"'><source src="/assets/film/hero-loop.h264.mp4?v=1" type="video/mp4"></video></div>
       <button class="stage-play" type="button" data-film-open aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z"/></svg>Watch how it works</button>
-      <div class="chip chip-2" aria-hidden="true"><div class="k">Verified venue</div><div class="v">The Grand Orchid Hall</div><div class="s">Eti-Osa, Lagos · ★ 4.5</div></div>
-      <div class="chip chip-1" aria-hidden="true"><div class="k"><span class="dot"></span>Deposit held</div><div class="v">₦850,000</div><div class="s">Released after your event, or sooner if you say so</div></div>
+      <div class="chip chip-1" aria-hidden="true"><div class="k"><span class="dot"></span>Deposit held</div><div class="v">₦812,500</div></div>
     </div>
   </div>
 </section>
