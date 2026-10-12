@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.strictlybyiv.com/sitemap.xml
+Sitemap: https://www.strictlybyiv.com/public-pages/sitemaps/providers.xml
+Sitemap: https://www.strictlybyiv.com/public-pages/sitemaps/events.xml
