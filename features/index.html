@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StrictlyByIV features: planning, guest check-in, bookings and chat</title>
+<meta name="description" content="Everything in the StrictlyByIV app: budgets, checklists, team collaboration, booking planners, vendors and venues, RSVPs, live guest check-in and chat.">
+<link rel="canonical" href="https://www.strictlybyiv.com/features/">
+<link rel="icon" type="image/png" href="/assets/home/icon.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#4D0316">
+  <script>(function(){try{var t=localStorage.getItem("sbiv-theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StrictlyByIV">
+<meta property="og:url" content="https://www.strictlybyiv.com/features/">
+<meta property="og:title" content="StrictlyByIV features">
+<meta property="og:description" content="Everything in the StrictlyByIV app: budgets, checklists, team collaboration, booking planners, vendors and venues, RSVPs, live guest check-in and chat.">
+<meta property="og:image" content="https://www.strictlybyiv.com/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+/* Same tokens, type and chrome as the homepage, so moving between them feels like one site. */
+:root{
+  --bg:#FCF9F4; --bg-2:#F4EEE7; --card:#FFFDF9; --line:#E7DED5;
+  --ink:#1F1416; --ink-2:#5C4A4C; --ink-3:#7A6668;
+  --wine:#4D0316; --wine-2:#6B1B2A; --on-wine:#FFF7EE;
+  --gold:#7A5F08; --gold-soft:#F6E7B9; --gold-line:#D9BF73;
+  --band:#4D0316; --band-ink:#FFF7EE; --band-muted:#E9CFC9; --band-gold:#E6BE62;
+  --arch:#F1E4D6; --phone:#171012; --shadow:0 30px 60px -28px rgba(77,3,22,.35);
+  --display:"Young Serif",Georgia,"Times New Roman",serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --step--1:clamp(.82rem,.8rem + .1vw,.9rem); --step-0:clamp(1rem,.96rem + .2vw,1.08rem);
+  --step-1:clamp(1.15rem,1.05rem + .5vw,1.35rem); --step-2:clamp(1.5rem,1.25rem + 1.2vw,2.1rem);
+  --step-3:clamp(2.1rem,1.6rem + 2.6vw,3.6rem); --step-4:clamp(2.6rem,1.8rem + 4vw,5rem);
+  --gutter:clamp(16px,4vw,48px); --max:1180px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#1D0F13; --bg-2:#26141A; --card:#2C1820; --line:#3D2730;
+  --ink:#F8F1E8; --ink-2:#D8C7C2; --ink-3:#A8938F;
+  --wine:#F3D9A0; --wine-2:#E6BE62; --on-wine:#2A0A12;
+  --gold:#E6BE62; --gold-soft:#3F2E14; --gold-line:#7D6430;
+  --band:#3A0B17; --band-ink:#FFF7EE; --band-muted:#D9BDB7; --band-gold:#E6BE62;
+  --arch:#2E1820; --phone:#0B0607; --shadow:0 30px 60px -28px rgba(0,0,0,.7); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1D0F13; --bg-2:#26141A; --card:#2C1820; --line:#3D2730;
+  --ink:#F8F1E8; --ink-2:#D8C7C2; --ink-3:#A8938F;
+  --wine:#F3D9A0; --wine-2:#E6BE62; --on-wine:#2A0A12;
+  --gold:#E6BE62; --gold-soft:#3F2E14; --gold-line:#7D6430;
+  --band:#3A0B17; --band-ink:#FFF7EE; --band-muted:#D9BDB7; --band-gold:#E6BE62;
+  --arch:#2E1820; --phone:#0B0607; --shadow:0 30px 60px -28px rgba(0,0,0,.7); color-scheme:dark}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;letter-spacing:-.015em;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-size:var(--step-0);font-weight:600;color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* Wordmark: two-tone like the app, IV in champagne */
+.wordmark{font-family:var(--display);font-weight:400;font-size:1.35rem;letter-spacing:-.015em;color:var(--wine);text-decoration:none;display:inline-flex;align-items:center;gap:.55rem}
+.wordmark .wm{white-space:nowrap}
+.wordmark b{color:var(--gold);font-weight:400}
+.wordmark img{width:34px;height:34px;border-radius:9px}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-bottom-color:var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:14px}
+.nav ul{display:flex;gap:1.6rem;list-style:none;margin:0;padding:0;font-size:.95rem;font-weight:500;color:var(--ink-2)}
+.nav ul a{text-decoration:none}
+.nav ul a:hover{color:var(--wine)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font:600 .95rem/1 var(--body);text-decoration:none;border-radius:999px;padding:.85rem 1.3rem;border:0;cursor:pointer;transition:transform .15s,background .2s}
+.btn:active{transform:scale(.98)}
+.btn-wine{background:var(--wine);color:var(--on-wine)}
+.btn-wine:hover{background:var(--wine-2)}
+.nav-actions{display:flex;align-items:center;gap:1.1rem}
+.nav-help{display:none;font-size:.95rem;font-weight:500;color:var(--ink-2);text-decoration:none}
+.nav-help:hover{color:var(--wine)}
+@media (max-width:820px){.nav ul{display:none}.nav-help{display:inline}}
+.nav .btn{white-space:nowrap}
+@media (max-width:420px){.nav .wrap{gap:.6rem}.nav-actions{gap:.8rem}.nav .btn{padding:.7rem .95rem;font-size:.9rem}.wordmark{font-size:1.18rem;gap:.45rem}.wordmark img{width:30px;height:30px}}
+
+/* Page */
+/* Anything a jump link targets clears the sticky header, including the sub-blocks inside the providers section */
+section,[id]{scroll-margin-top:84px}
+.sec{padding-block:clamp(56px,8vw,104px)}
+.tint{background:var(--bg-2);border-block:1px solid var(--line)}
+.sec-head{max-width:660px}
+.sec-head h2{font-size:var(--step-3);color:var(--wine);margin-top:.8rem}
+.sec-head p{color:var(--ink-2);font-size:var(--step-1);margin-top:1rem;max-width:56ch;line-height:1.55}
+
+.intro{padding-block:clamp(36px,6vw,80px) clamp(32px,5vw,56px)}
+.intro h1{font-size:var(--step-4);color:var(--wine);margin-top:1rem;max-width:16ch}
+.intro .lede{font-size:var(--step-1);color:var(--ink-2);max-width:48ch;margin-top:1.3rem;line-height:1.55}
+.jump{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:2rem 0 0;padding:0}
+.jump a{display:inline-flex;align-items:center;padding:.55rem 1rem;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem;transition:border-color .2s,color .2s}
+.jump a:hover{border-color:var(--wine);color:var(--wine)}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,22px);margin-top:clamp(32px,4vw,48px)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,2.4vw,28px)}
+.card h3{font-size:var(--step-1);color:var(--ink)}
+.card p{color:var(--ink-2);font-size:.98rem;margin-top:.55rem;line-height:1.6}
+.card .for{display:block;margin-top:.9rem;font-size:.9rem;color:var(--gold);font-weight:600}
+
+.cats{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,3vw,36px) clamp(24px,4vw,56px);margin-top:clamp(28px,4vw,44px)}
+.cat h4{margin:0 0 .75rem;font:600 1rem/1.2 var(--body);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
+.chips li{display:inline-flex;align-items:baseline;gap:.4rem;padding:.42rem .85rem;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:.95rem;color:var(--ink)}
+.chips small{font-size:.8rem;color:var(--ink-3)}
+.note{margin-top:clamp(24px,3vw,36px);padding:1rem 1.2rem;border-radius:16px;background:var(--gold-soft);color:var(--ink);font-size:.98rem;max-width:72ch}
+.note strong{font-weight:600}
+.note+.note{margin-top:12px}
+
+.subhead{margin-top:clamp(44px,6vw,72px);padding-top:clamp(28px,4vw,40px);border-top:1px solid var(--line)}
+.subhead h3{font-size:var(--step-2);color:var(--wine)}
+.subhead p{color:var(--ink-2);margin-top:.6rem;max-width:62ch}
+
+.cta{background:var(--band);color:var(--band-ink);text-align:center}
+.cta h2{font-size:var(--step-3);color:var(--band-ink)}
+.cta p{color:var(--band-muted);font-size:var(--step-1);margin:1rem auto 0;max-width:46ch}
+.cta .actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:2rem}
+.btn-gold{background:var(--band-gold);color:#2A0A12}
+.btn-gold:hover{background:#F0CF82}
+.btn-line{border:1px solid rgba(255,247,238,.35);color:var(--band-ink)}
+.btn-line:hover{border-color:var(--band-gold);color:var(--band-gold)}
+
+/* Footer */
+footer{padding-block:48px 40px;color:var(--ink-2);font-size:.9rem}
+footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
+.fcols{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.fcols h4{font:600 .92rem/1 var(--body);color:var(--ink-3);margin:0 0 .9rem}
+.fcols a{display:block;text-decoration:none;padding-block:.25rem}
+.fcols a:hover{color:var(--wine)}
+.legalline{grid-column:1/-1;border-top:1px solid var(--line);padding-top:1.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;color:var(--ink-3);font-size:.82rem}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}}
+
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}.cats{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .cards{grid-template-columns:1fr}
+  .sec{padding-block:44px}
+  .intro{padding-block:24px 28px}
+  .jump{margin-top:1.4rem}
+  .cta .actions{flex-direction:column;align-items:stretch}
+  .cta .btn{padding-block:1.05rem;font-size:1rem}
+  footer{padding-block:36px 28px}
+}
+</style>
+  <link rel="stylesheet" href="/assets/theme.css?v=2" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.strictlybyiv.com/features/","url":"https://www.strictlybyiv.com/features/","name":"StrictlyByIV features","description":"Everything in the StrictlyByIV app: budgets, checklists, team collaboration, booking planners, vendors and venues, RSVPs, live guest check-in and chat.","isPartOf":{"@id":"https://www.strictlybyiv.com/#website"},"about":{"@id":"https://www.strictlybyiv.com/#app"}},{"@type":"MobileApplication","@id":"https://www.strictlybyiv.com/#app","name":"StrictlyByIV: Event Planner","operatingSystem":"Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"},"downloadUrl":"https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv","publisher":{"@id":"https://www.strictlybyiv.com/#organization"},"featureList":["Plan several events at once: weddings, birthdays, naming ceremonies, burials, graduations, concerts, conferences, religious and corporate events","Multi-day events with a cover photo, location and map","Checklist with starter tasks for each event type, due dates, assignees and reminders","Budget with categories and planned, quoted, committed, paid and outstanding amounts, plus overspend warnings","Booking payments flow into the budget automatically","Guest list with plus-ones, VIP and other categories, table numbers and notes","Import guests from a CSV file or your phone contacts, and export to CSV","Personal invitation link for every guest, no app needed","RSVPs: attending, maybe or declined, with plus-ones, dietary notes, deadlines and dress code","QR entry passes for guests who are coming","Live guest check-in by QR scan or by name, with several people checking in at once","Live arrivals and an arrival timeline for the event","Team collaboration: invite family, co-hosts, committees and a planner by phone, email or link","Editor and viewer access, with control over who sees guests, budget, checklist, bookings and chat","Find and compare planners, vendors (39 kinds) and venues (25 kinds) across Nigeria","Filter by state and LGA, price, venue capacity and verified providers","Book planners, vendors and venues: request, counter-offer and accept in the app","Pay in full or pay a deposit and the balance later, through Paystack","Payment held until you release it, or until after the event, with disputes if something goes wrong","Ratings and reviews from people who booked","Chat: one-to-one, per booking and event group chats, with photos, files, video, replies and reactions","Push notifications and reply to messages from the notification","Provider profiles with packages, prices, add-ons, FAQs, policies and a photo gallery","Venue capacity, types and amenities such as generator, borehole water and parking","Shareable web page for every provider and public event","Provider payouts to a Nigerian bank account","Verified identity and registered business badges","Pro plans: profile analytics, more listings and photos, and featured placement","Sign in with email, phone number or Google","Light and dark mode, block and report, and delete your account in the app"]}]}</script>
+</head>
+<body>
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="wordmark" href="/" aria-label="StrictlyByIV home"><img src="/assets/home/icon.png" alt=""><span class="wm">StrictlyBy<b>IV</b></span></a>
+    <ul>
+      <li><a href="/#protection">How payment works</a></li>
+      <li><a href="/#plan">Plan</a></li>
+      <li><a href="/#book">Book</a></li>
+      <li><a href="/#providers">For providers</a></li>
+      <li><a href="/help/">Help</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a class="nav-help" href="/help/">Help</a>
+      <span class="theme-ctl"><span class="theme-pill" role="group" aria-label="Theme" data-mode="auto"><span class="thumb"></span><button type="button" data-set="auto" aria-pressed="true" aria-label="Auto theme" title="Auto: follow this device"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></button><button type="button" data-set="light" aria-pressed="false" aria-label="Light theme" title="Light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg></button><button type="button" data-set="dark" aria-pressed="false" aria-label="Dark theme" title="Dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></span><button class="theme-dial" type="button" data-mode="auto" aria-label="Theme: Auto. Tap to change."><span class="ic ic-auto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor" stroke="none"/></svg></span><span class="ic ic-light"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></svg></span><span class="ic ic-dark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span><span class="theme-tip" aria-hidden="true">Auto</span></button></span>
+      <a class="btn btn-wine" href="/get/">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="intro">
+  <div class="wrap">
+    <p class="eyebrow">Features</p>
+    <h1>Everything in one app.</h1>
+    <p class="lede">StrictlyByIV started with invitations and grew into the whole event: budget, checklist and team, booking planners, vendors and venues, RSVPs, live check-in at the gate and chat. Here is everything it does.</p>
+    <ul class="jump" aria-label="On this page">
+      <li><a href="#planning">Planning</a></li>
+      <li><a href="#guests">Guests &amp; check-in</a></li>
+      <li><a href="#booking">Booking</a></li>
+      <li><a href="#team">Team &amp; chat</a></li>
+      <li><a href="#providers">For providers</a></li>
+      <li><a href="#account">Your account</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec tint" id="planning">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Planning</p>
+      <h2>Budget, checklist and every event in one place.</h2>
+      <p>Run several events at once, from weddings and birthdays to naming ceremonies, burials, graduations, concerts, conferences and corporate events, including events that run over several days.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Budgeting</h3><p>Set a target, split it into categories, and track each item as planned, quoted, committed, paid or outstanding. Booking payments flow in automatically, and you are warned when you go over budget or a payment is overdue.</p></div>
+      <div class="card"><h3>Checklists</h3><p>Every event starts with tasks for its type. Set due dates, assign tasks to people on your team, and get a reminder on the day.</p></div>
+      <div class="card"><h3>Your events</h3><p>Cover photo, location and map for each event. Keep it private, or make it public with its own shareable page.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="guests">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Guests &amp; check-in</p>
+      <h2>RSVPs and a smooth gate on the day.</h2>
+      <p>Your guests do not need the app. Everything they see opens in their browser.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Guest list</h3><p>Add guests with plus-ones, categories such as VIP, table numbers and notes. Import from a CSV file or your phone contacts, and export whenever you need to.</p></div>
+      <div class="card"><h3>Invitations &amp; RSVPs</h3><p>Each guest gets a personal invitation link to reply attending, maybe or declined, with plus-ones, dietary notes and a message. Set an RSVP deadline and a dress code, and keep the address hidden until they accept.</p></div>
+      <div class="card"><h3>Live guest check-in</h3><p>Guests who are coming get a QR entry pass. Scan passes at the gate, or check guests in by name, with several people checking in at once. A pass that has already been used is flagged, and you can follow arrivals live.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="booking">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Booking</p>
+      <h2>Find, compare and book the people who make it happen.</h2>
+      <p>Planners, vendors across 39 kinds of trade, and venues across 25 kinds of space, all over Nigeria.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Find providers</h3><p>Search and filter by category, state and LGA, price, venue capacity, and verified identity or registered business. See packages, prices, photos, policies, FAQs and reviews.</p></div>
+      <div class="card"><h3>Book in the app</h3><p>Send a booking request, and agree the price with a counter-offer if needed. Pay in full or pay a deposit now and the balance later, through Paystack.</p></div>
+      <div class="card"><h3>Payment held</h3><p>Your payment is held until you release it, or until after the event. Release it early when you are happy, and open a dispute from the booking if something goes wrong.</p></div>
+      <div class="card"><h3>Reviews</h3><p>After a booking, rate the provider and leave a review that helps the next person choose.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="team">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Team &amp; chat</p>
+      <h2>Plan together, and keep every conversation in one place.</h2>
+      <p>Bring in family, co-hosts, committees and your planner.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Team collaboration</h3><p>Invite people by phone, email or a join link, and choose what each person can see and do: guests, checklist, budget, bookings and chat. Editors make changes, viewers follow along.</p></div>
+      <div class="card"><h3>Chat</h3><p>Message providers one-to-one or inside a booking, and talk with your team in the event group chat. Share photos, files and video, reply to messages and react.</p></div>
+      <div class="card"><h3>Notifications</h3><p>Push notifications for bookings, payments, tasks and messages, and reply to a message straight from the notification.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec tint" id="providers">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">For providers</p>
+      <h2>For planners, vendors and venues.</h2>
+      <p>List your business, get booked and get paid.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Your listing</h3><p>Packages with prices, units and add-ons, a photo gallery, FAQs and your policies. Venues show their type, capacity and amenities such as generator, borehole water and parking.</p></div>
+      <div class="card"><h3>Bookings &amp; payouts</h3><p>Accept, decline or counter-offer booking requests, chat with clients, and get paid to your Nigerian bank account.</p></div>
+      <div class="card"><h3>Trust &amp; reach</h3><p>Verify your identity or registered business for a badge clients trust, collect reviews, and share your own web page. Pro adds profile analytics, more listings and photos, and featured placement.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="account">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Your account</p>
+      <h2>Your account, your control.</h2>
+      <p>Sign in the way that suits you, and stay in control of who you hear from and what you share.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>Sign in your way</h3><p>Email, phone number or Google.</p></div>
+      <div class="card"><h3>Safety &amp; control</h3><p>Light and dark mode, block and report people, choose your privacy settings, and delete your account from the app.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec cta">
+  <div class="wrap">
+    <h2>Start with StrictlyByIV.</h2>
+    <p>Free to download. Planning is free for hosts, and businesses list for free.</p>
+    <div class="actions">
+      <a class="btn btn-gold" href="/get/">Get the app</a>
+      <a class="btn btn-line" href="/who-its-for/">Who it's for</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="wordmark" href="/"><img src="/assets/home/icon.png" alt=""><span class="wm">StrictlyBy<b>IV</b></span></a>
+      <p style="margin-top:1rem;max-width:34ch">Event planning and bookings for Nigeria. Made by DervLabs in Ibadan.</p>
+    </div>
+    <div class="fcols">
+      <div><h4>App</h4><a href="/get/">Get the app</a><a href="/features/">Features</a><a href="/who-its-for/">Who it's for</a><a href="/explore">Browse vendors</a><a href="/#providers">For providers</a></div>
+      <div><h4>Support</h4><a href="/help/">Help centre</a><a href="/account/delete/">Delete your account</a><a href="mailto:support@strictlybyiv.com">support@strictlybyiv.com</a></div>
+      <div><h4>Legal</h4><a href="/legal/terms/">Terms</a><a href="/legal/privacy/">Privacy</a><a href="/legal/payments-refunds-payouts/">Payments &amp; refunds</a><a href="/legal/community-guidelines/">Community guidelines</a></div>
+    </div>
+    <div class="legalline"><span>© 2026 DERVLABS LTD · RC 9030571</span><span>App Store is a service mark of Apple Inc. Google Play is a trademark of Google LLC.</span></div>
+  </div>
+</footer>
+<script>
+  (function(){var nav=document.querySelector(".nav");function s(){nav.classList.toggle("scrolled",window.scrollY>8)}window.addEventListener("scroll",s,{passive:true});s()})();
+</script>
+<script src="/assets/theme.js?v=2" defer></script>
+</body>
+</html>
