@@ -54,7 +54,7 @@
         <aside class="status-card" aria-label="Document status">
           <span class="meta-label">Document status</span>
           <strong>In effect</strong>
-          <p>Effective date: October 5, 2026<br />Last updated: October 12, 2026</p>
+          <p>Effective date: October 5, 2026<br />Last updated: October 14, 2026</p>
         </aside>
       </section>
 
@@ -111,6 +111,7 @@
             <p><strong>Technical information</strong></p>
             <ul>
               <li><strong>App analytics:</strong> screens viewed, in-app events (for example, whether a sign-in succeeded or an event was saved), an app-instance identifier, device model, operating system, app version, and approximate location derived from your IP address. Analytics is not linked to your account, name, or email address, and you can turn it off at any time (see <a href="#choices">section 12</a>).</li>
+              <li><strong>Website analytics:</strong> when you visit strictlybyiv.com, including shared provider, event, and browse pages, Cloudflare Web Analytics records the page you viewed (without anything after the "?" in its address), the site that referred you, your browser, operating system, and device type, your country, and how quickly the page loaded. It uses no cookies or similar storage on your device, does not fingerprint you, and is not linked to your account. It is not used on guest invitation or planning-team invite pages, because their addresses contain private links.</li>
               <li><strong>Crash and error reports (always on):</strong> stack traces, device and operating-system details, your account identifier, and diagnostic log lines at the time of the error. While analytics is on, they also list the screens you opened and actions you took just before the error. Crash reports do not include your messages, guest lists, or the content of your requests.</li>
               <li><strong>App platform and version:</strong> when you use the app while signed in, we record which platform you used (Android, iOS, or desktop), the app version, and when you first and last used it on that platform, linked to your account. We use this to keep older versions working, decide when to stop supporting them, and count how many people use each platform. We don't record your device model, IP address, or location with it. This is separate from app analytics and is not affected by the analytics setting.</li>
               <li><strong>App integrity checks:</strong> tokens from Google Play Integrity or Apple App Attest confirming that requests come from a genuine copy of the app.</li>
@@ -124,7 +125,7 @@
             <p>Data protection law requires a legal basis for each way we use personal data. We rely on the following:</p>
             <ul>
               <li><strong>To provide the service you asked for (contract):</strong> creating and securing your account; running events, guest management, collaboration, messaging, the marketplace, bookings, payments, refunds, disputes, subscriptions, and payouts; and sending account, booking, payment, and security notifications.</li>
-              <li><strong>To keep StrictlyByIV safe and working (legitimate interests):</strong> preventing fraud, abuse, and unauthorized access; enforcing our terms and community guidelines; handling reports and disputes; diagnosing crashes and errors so the app stays stable and secure; and understanding in aggregate how the app is used so we can improve it. We weigh these interests against your rights, and you can object to them (see <a href="#rights">section 11</a>).</li>
+              <li><strong>To keep StrictlyByIV safe and working (legitimate interests):</strong> preventing fraud, abuse, and unauthorized access; enforcing our terms and community guidelines; handling reports and disputes; diagnosing crashes and errors so the app stays stable and secure; and understanding in aggregate how the app and website are used so we can improve them. We weigh these interests against your rights, and you can object to them (see <a href="#rights">section 11</a>).</li>
               <li><strong>With your consent:</strong> app analytics, if you are in the European Economic Area or Switzerland, where we ask before collecting any; accessing your phone's contacts, camera, or photos when you choose to use those features; sending push notifications; and sending email updates you signed up for on our website. You can withdraw consent at any time in the app's Privacy settings or your device settings, or, for email updates, with the unsubscribe link in any update. Withdrawing consent does not affect processing that already happened.</li>
               <li><strong>To meet legal obligations:</strong> keeping financial and tax records, verifying provider identities where required to prevent fraud and money laundering, and responding to lawful requests from authorities.</li>
             </ul>
@@ -167,7 +168,7 @@
             <p>We use the following providers to run StrictlyByIV. Each one processes personal data only on our instructions or, where noted, under its own privacy policy.</p>
             <ul>
               <li><strong>Railway</strong> (Railway Corporation, United States): application hosting, database, cache, and message queue. Our production servers are located in the Netherlands (EU).</li>
-              <li><strong>Cloudflare R2</strong> (Cloudflare, Inc., United States): storage and delivery of photos, videos, and files you upload.</li>
+              <li><strong>Cloudflare</strong> (Cloudflare, Inc., United States): delivery and security of our website, Web Analytics for aggregate website visits (no cookies), and R2 storage and delivery of photos, videos, and files you upload.</li>
               <li><strong>Google Firebase</strong> (Google LLC, United States): Cloud Messaging for push notifications, Analytics for aggregate usage, Crashlytics for crash reports, and App Check for app integrity. The app also uses Google ML Kit to scan QR codes on your device; the camera image stays on your device, but Google may receive anonymous usage statistics about the scanner. Push notification previews (for example, the sender and the start of a message) pass through Google's and Apple's notification services to reach your device.</li>
               <li><strong>Sentry</strong> (Functional Software, Inc., servers in Germany, EU): server error monitoring.</li>
               <li><strong>Brevo</strong> (Sendinblue SAS, France, EU): transactional email, such as verification codes, receipts, and booking updates, and the email updates you can sign up for on our website.</li>
@@ -199,7 +200,7 @@
               <li><strong>Verification codes and password-reset links:</strong> deleted within a day after they expire or are used. Sign-in sessions expire after 7 days.</li>
               <li><strong>Email updates:</strong> until you unsubscribe or ask us to remove you. Sign-ups that are never confirmed are never added to our mailing list.</li>
               <li><strong>App platform and version records:</strong> while your account is open; deleted when you delete your account, or after 400 days without use.</li>
-              <li><strong>Analytics and crash data:</strong> analytics data is kept for 2 months; crash reports are kept for 90 days.</li>
+              <li><strong>Analytics and crash data:</strong> app analytics data is kept for 2 months; crash reports are kept for 90 days. Website analytics is kept in full by Cloudflare for 7 days, then only as a reduced sample, and we can view it for up to 6 months.</li>
               <li><strong>Backups:</strong> deleted data may remain in encrypted backups until those backups expire in the normal cycle.</li>
             </ul>
             <p>Reviews you wrote stay attached to the provider's rating after your account is deleted, but your name, photo, and review text are removed. A deleted provider's business name stays on past bookings so the other party's records remain accurate.</p>
@@ -238,6 +239,7 @@
             <h2>12. Your choices</h2>
             <ul>
               <li><strong>Analytics:</strong> you can turn app analytics on or off at any time in Profile, then Privacy, or before you sign in, from Privacy choices on the welcome screen. If you are in the European Economic Area or Switzerland, analytics stays off until you allow it. Turning it off stops collection immediately and clears the analytics data stored on your device. Crash reports are always sent because we need them to keep the app working and secure.</li>
+              <li><strong>Website analytics:</strong> it uses no cookies and is not linked to you. A browser setting or content blocker that blocks cloudflareinsights.com stops it.</li>
               <li><strong>Permissions:</strong> you can turn off contacts, camera, photo, and notification access in your device settings at any time. Related features stop working until you turn them back on.</li>
               <li><strong>Event visibility:</strong> private events stay off search and discovery. Public events can be found by others.</li>
               <li><strong>Email updates:</strong> use the unsubscribe link in any update, or email us, and we stop sending them.</li>
