@@ -319,6 +319,9 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
 .fcols h4{font:600 .92rem/1 var(--body);color:var(--ink-3);margin:0 0 .9rem}
 .fcols a{display:block;text-decoration:none;padding-block:.25rem}
 .fcols a:hover{color:var(--wine)}
+.social{display:flex;gap:.5rem;list-style:none;margin:1.2rem 0 0;padding:0}
+.social a{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);transition:color .2s,border-color .2s}
+.social a:hover{color:var(--wine);border-color:var(--wine)}
 .legalline{grid-column:1/-1;border-top:1px solid var(--line);padding-top:1.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;color:var(--ink-3);font-size:.82rem}
 @media (max-width:760px){footer .wrap{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}}
 
@@ -389,7 +392,7 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
 .hero .phone{animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
 .chip{animation:rise .7s .5s cubic-bezier(.2,.7,.2,1) both}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.strictlybyiv.com/#organization","name":"StrictlyByIV","legalName":"DERVLABS LTD","url":"https://www.strictlybyiv.com/","logo":"https://www.strictlybyiv.com/assets/strictlybyiv-app-icon.png","description":"Plan your event and book trusted vendors, venues and planners across Nigeria. Your payment is held until you release it, or until after your event.","email":"support@strictlybyiv.com","areaServed":{"@type":"Country","name":"Nigeria"},"contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@strictlybyiv.com","areaServed":"NG","availableLanguage":"en"}},{"@type":"WebSite","@id":"https://www.strictlybyiv.com/#website","url":"https://www.strictlybyiv.com/","name":"StrictlyByIV","inLanguage":"en-NG","publisher":{"@id":"https://www.strictlybyiv.com/#organization"}},{"@type":"MobileApplication","@id":"https://www.strictlybyiv.com/#app","name":"StrictlyByIV: Event Planner","operatingSystem":"Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"},"downloadUrl":"https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv","publisher":{"@id":"https://www.strictlybyiv.com/#organization"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.strictlybyiv.com/#organization","name":"StrictlyByIV","legalName":"DERVLABS LTD","url":"https://www.strictlybyiv.com/","logo":"https://www.strictlybyiv.com/assets/strictlybyiv-app-icon.png","description":"Plan your event and book trusted vendors, venues and planners across Nigeria. Your payment is held until you release it, or until after your event.","email":"support@strictlybyiv.com","sameAs":["https://www.instagram.com/strictlybyiv_ng","https://x.com/strictlybyiv_ng"],"areaServed":{"@type":"Country","name":"Nigeria"},"contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"support@strictlybyiv.com","areaServed":"NG","availableLanguage":"en"}},{"@type":"WebSite","@id":"https://www.strictlybyiv.com/#website","url":"https://www.strictlybyiv.com/","name":"StrictlyByIV","inLanguage":"en-NG","publisher":{"@id":"https://www.strictlybyiv.com/#organization"}},{"@type":"MobileApplication","@id":"https://www.strictlybyiv.com/#app","name":"StrictlyByIV: Event Planner","operatingSystem":"Android","applicationCategory":"LifestyleApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"NGN"},"downloadUrl":"https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv","publisher":{"@id":"https://www.strictlybyiv.com/#organization"}}]}</script>
   <link rel="stylesheet" href="/assets/theme.css?v=2" />
 </head>
 <body>
@@ -533,7 +536,7 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
       <p>Browse caterers, decorators, photographers, venues and planners near you. Every price is in naira and every review comes from a real booking.</p>
     </div>
     <div class="book">
-      <figure><div class="shot"><img src="/assets/home/venue.webp" alt="A venue profile with photos and rating" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>Compare providers side by side</h3><p>Photos, starting prices, ratings, and a verified badge on providers who have confirmed who they are.</p></figcaption></figure>
+      <figure><div class="shot"><img src="/assets/home/venue.webp" alt="A venue profile with photos and rating" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>See providers at a glance</h3><p>Photos, starting prices, ratings, and a verified badge on providers who have confirmed who they are.</p></figcaption></figure>
       <figure><div class="shot"><img src="/assets/home/chat.webp" alt="A chat with a provider" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>Talk it through in the app</h3><p>Ask questions and agree the terms in one chat. Providers can counter-offer, and once you book, your vendors share one group chat for the event.</p></figcaption></figure>
       <figure><div class="shot"><img src="/assets/home/payments.webp" alt="Booking payments with deposit and balance" loading="lazy" decoding="async" width="600" height="1298"></div><figcaption><h3>Track every payment</h3><p>Deposit, balance and what's due when, on each booking.</p></figcaption></figure>
     </div>
@@ -603,7 +606,7 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
   <div class="wrap">
     <img class="mk" src="/assets/home/icon.png" alt="StrictlyByIV app icon">
     <h2>Start planning today.</h2>
-    <p>Free on iPhone and Android.</p>
+    <p data-platforms>Free on Android. iPhone coming soon.</p>
     <div class="stores" data-stores>
       <a class="store is-pending" data-store="ios" aria-disabled="true"><svg><use href="#i-apple"/></svg><span><small>Coming soon to the</small><strong>App Store</strong></span><span class="eta" data-eta="short"></span></a>
       <a class="store" data-store="android" href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv"><svg><use href="#i-play"/></svg><span><small>Get it on</small><strong>Google Play</strong></span></a>
@@ -642,6 +645,7 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
     <div>
       <a class="wordmark" href="#top"><img src="/assets/home/icon.png" alt=""><span class="wm">StrictlyBy<b>IV</b></span></a>
       <p style="margin-top:1rem;max-width:34ch">Event planning and bookings for Nigeria. Made by DervLabs in Ibadan.</p>
+      <ul class="social" aria-label="StrictlyByIV on social media"><li><a href="https://www.instagram.com/strictlybyiv_ng" rel="me noopener" aria-label="StrictlyByIV on Instagram" title="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></a></li><li><a href="https://x.com/strictlybyiv_ng" rel="me noopener" aria-label="StrictlyByIV on X" title="X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a></li></ul>
     </div>
     <div class="fcols">
       <div><h4>App</h4><a class="is-pending" data-ios-link aria-disabled="true">App Store <span class="eta-inline" data-eta="phrase"></span></a><a href="https://play.google.com/store/apps/details?id=com.dervlabs.strictlybyiv">Google Play</a><a href="/features/">Features</a><a href="/who-its-for/">Who it's for</a><a href="/explore">Browse vendors</a><a href="#providers">For providers</a></div>
@@ -707,6 +711,8 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
       if(iosLive){a.href=IOS;a.removeAttribute("aria-disabled");a.querySelector("small").textContent="Download on the";var e=a.querySelector(".eta");if(e)e.remove()}
     });
     var foot=document.querySelector("[data-ios-link]");
+    var plats=document.querySelector("[data-platforms]");
+    if(iosLive&&plats)plats.textContent="Free on iPhone and Android.";
     if(iosLive&&foot){foot.href=IOS;foot.classList.remove("is-pending");foot.removeAttribute("aria-disabled");foot.textContent="App Store"}
     if(platform){
       var heldIos=platform==="ios"&&!iosLive;
