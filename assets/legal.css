@@ -199,13 +199,21 @@ h1 {
 .side-nav a { color: var(--ink-2); font-size: .92rem; text-decoration: none; }
 .side-nav a:hover { color: var(--wine); }
 
-.document { display: grid; gap: 16px; min-width: 0; }
+/* The cards are as wide as a line of text (70ch) plus their padding and border,
+   so paragraphs fill them instead of stopping short inside a wider card. */
+.document {
+  --section-pad: clamp(22px, 3vw, 32px);
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  max-width: calc(70ch + 2 * var(--section-pad) + 2px);
+}
 
 .section {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 20px;
-  padding: clamp(22px, 3vw, 32px);
+  padding: var(--section-pad);
   scroll-margin-top: 84px;
 }
 .section h2 {
