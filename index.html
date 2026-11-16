@@ -691,10 +691,16 @@ dialog.film::backdrop{background:rgba(15,8,10,.84);-webkit-backdrop-filter:blur(
   var isAndroid=/Android/.test(ua);
   var isIOS=!isAndroid&&(/iPhone|iPad|iPod/.test(ua)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1));
   var platform=isIOS?"ios":isAndroid?"android":null;
+  // A phone sees only its own store: the main button goes there, and the other store's line and
+  // badges are removed. A computer, or the page without this script, keeps both stores.
   if(platform){
     document.querySelectorAll(".js-smart").forEach(function(a){a.href=platform==="ios"?IOS:ANDROID});
-    if(platform==="ios")document.getElementById("alt-store").innerHTML='Using Android? <a href="'+ANDROID+'">Get it on Google Play</a>';
-    document.querySelectorAll('[data-store="'+platform+'"]').forEach(function(a){a.classList.add("primary")});
+    var alt=document.getElementById("alt-store");
+    if(alt)alt.parentNode.removeChild(alt);
+    document.querySelectorAll("[data-store]").forEach(function(a){
+      if(a.getAttribute("data-store")===platform)a.classList.add("primary");
+      else a.parentNode.removeChild(a);
+    });
   }
   var nav=document.querySelector(".nav");
   function onScroll(){nav.classList.toggle("scrolled",window.scrollY>8)}
