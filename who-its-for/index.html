@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Who StrictlyByIV is for: hosts, planners, vendors, venues</title>
-<meta name="description" content="For everyone behind a Nigerian event: couples, families, companies, churches and mosques, and the planners, vendors and venues they book.">
+<title>Who StrictlyByIV is for: any occasion, big or small</title>
+<meta name="description" content="Weddings, birthdays, naming ceremonies, graduations, burials, conferences, a dinner for eight or a weekend away. Plan any occasion in Nigeria and book the planners, vendors and venues who make it happen.">
 <link rel="canonical" href="https://www.strictlybyiv.com/who-its-for/">
 <link rel="icon" type="image/png" href="/assets/home/icon.png">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="StrictlyByIV">
 <meta property="og:url" content="https://www.strictlybyiv.com/who-its-for/">
 <meta property="og:title" content="Who StrictlyByIV is for">
-<meta property="og:description" content="Hosts, organisations, planners, vendors and venues: everyone behind a Nigerian event.">
+<meta property="og:description" content="For anything worth planning in Nigeria, big or small, and for the planners, vendors and venues who make it happen.">
 <meta property="og:image" content="https://www.strictlybyiv.com/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -149,9 +149,18 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
 .legalline{grid-column:1/-1;border-top:1px solid var(--line);padding-top:1.4rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;color:var(--ink-3);font-size:.82rem}
 @media (max-width:760px){footer .wrap{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}}
 
+.cards-2{grid-template-columns:repeat(2,1fr)}
+.card .eg{display:block;margin-top:.9rem;font-size:.9rem;color:var(--ink-3)}
+.more{margin-top:1.1rem}
+.more>summary{display:inline-flex;align-items:center;gap:.5rem;padding:.6rem 1.1rem;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font-weight:600;font-size:.95rem;cursor:pointer;list-style:none;transition:border-color .2s,color .2s}
+.more>summary::-webkit-details-marker{display:none}
+.more>summary::after{content:"";width:.5rem;height:.5rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s}
+.more[open]>summary::after{transform:translateY(2px) rotate(-135deg)}
+.more>summary:hover{border-color:var(--wine);color:var(--wine)}
+.more .cats{margin-top:clamp(20px,3vw,32px)}
 @media (max-width:900px){.cards{grid-template-columns:1fr 1fr}.cats{grid-template-columns:1fr}}
 @media (max-width:640px){
-  .cards{grid-template-columns:1fr}
+  .cards,.cards-2{grid-template-columns:1fr}
   .sec{padding-block:44px}
   .intro{padding-block:24px 28px}
   .jump{margin-top:1.4rem}
@@ -186,10 +195,12 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
 <section class="intro">
   <div class="wrap">
     <p class="eyebrow">Who it's for</p>
-    <h1>Everyone behind a Nigerian event.</h1>
-    <p class="lede">The people hosting it, the organisations running it, and the planners, vendors and venues who make it happen. If your event has a guest list, a budget or a booking, StrictlyByIV is for you.</p>
+    <h1>For anything worth planning.</h1>
+    <p class="lede">A wedding for 500 or a dinner for eight. A naming ceremony, a graduation, a weekend away with friends. If it happens in Nigeria and it needs planning, StrictlyByIV is for you, and for the planners, vendors and venues who make it happen.</p>
     <ul class="jump" aria-label="On this page">
-      <li><a href="#hosts">Hosting an event</a></li>
+      <li><a href="#occasions">Any occasion</a></li>
+      <li><a href="#size">Big or small</a></li>
+      <li><a href="#hosts">Hosting</a></li>
       <li><a href="#organisations">Organisations</a></li>
       <li><a href="#planners">Planners</a></li>
       <li><a href="#vendors">Vendors</a></li>
@@ -199,16 +210,51 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
   </div>
 </section>
 
+<section class="sec tint" id="occasions">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Any occasion</p>
+      <h2>Whatever you're planning, it counts.</h2>
+      <p>Choose what you're planning when you start, and the app suggests the providers people usually book for it. Not on the list? Choose Other and name it yourself.</p>
+    </div>
+    <div class="cats">
+      <div class="cat"><h4>Weddings &amp; romance</h4><ul class="chips"><li>Introduction</li><li>Traditional Wedding</li><li>White Wedding</li><li>Court Wedding</li><li>Nikkah</li><li>Wedding Reception</li><li>Proposal</li><li>Bridal Shower</li><li>Bachelor &amp; Bachelorette</li><li>Vow Renewal</li><li>Wedding Anniversary</li></ul></div>
+      <div class="cat"><h4>Family &amp; life</h4><ul class="chips"><li>Birthday</li><li>Kids' Party</li><li>Naming Ceremony</li><li>Child Dedication</li><li>Baby Shower</li><li>Gender Reveal</li><li>Graduation</li><li>Call to Bar</li><li>Housewarming</li><li>Family Reunion</li><li>Dinner Party</li><li>Picnic</li></ul></div>
+      <div class="cat"><h4>Religious &amp; traditional</h4><ul class="chips"><li>Thanksgiving</li><li>Crusade &amp; Vigil</li><li>Church &amp; mosque events</li><li>Chieftaincy &amp; Title-taking</li><li>Coronation</li><li>Cultural Festival</li></ul></div>
+      <div class="cat"><h4>Funeral &amp; memorial</h4><ul class="chips"><li>Funeral</li><li>Wake Keep</li><li>Service of Songs</li><li>Burial Reception</li><li>Memorial &amp; Remembrance</li></ul></div>
+      <div class="cat"><h4>Work &amp; professional</h4><ul class="chips"><li>Conference</li><li>Seminar &amp; Workshop</li><li>Product Launch</li><li>Award Night</li><li>End-of-Year Party</li><li>Send-forth</li><li>Retirement</li><li>Team Building</li><li>Exhibition &amp; Trade Fair</li></ul></div>
+      <div class="cat"><h4>Entertainment</h4><ul class="chips"><li>Concert</li><li>Festival</li><li>Comedy Show</li><li>Pool Party</li></ul></div>
+    </div>
+    <p class="note"><strong>Something else?</strong> Choose Other and call it what it is: a weekend away, a girls' trip, a book launch, a game night, an album listening party.</p>
+  </div>
+</section>
+
+<section class="sec" id="size">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Big or small</p>
+      <h2>The same app for eight guests or 500.</h2>
+      <p>Use as much or as little as your occasion needs.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h3>A dinner for eight</h3><p>A checklist so nothing is forgotten, a budget to keep spending in check, and invitations your friends answer from a link, without the app.</p><span class="eg">Checklist · Budget · Invitations</span></div>
+      <div class="card"><h3>A weekend away</h3><p>Plan it with the friends coming along, keep every cost in one budget, and book the shortlet, the car and the private chef in one place.</p><span class="eg">Planning together · Budget · Bookings</span></div>
+      <div class="card"><h3>A wedding for 500</h3><p>Every ceremony, committee and vendor in one plan, a QR pass at the gate for every guest who's coming, and payments held until after the day.</p><span class="eg">Everything, including check-in</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec tint" id="hosts">
   <div class="wrap">
     <div class="sec-head">
       <p class="eyebrow">If you're hosting</p>
-      <h2>Your event, planned in one place.</h2>
-      <p>Introductions, weddings and nikkah, birthdays, naming ceremonies, graduations, send-forths, burials and wake keeps, concerts, conferences and religious events, plus anything else you're celebrating.</p>
+      <h2>Your plan, in one place.</h2>
+      <p>Plan with your partner, your family or your friends, from across town or from another country.</p>
     </div>
-    <div class="cards">
+    <div class="cards cards-2">
       <div class="card"><h3>Couples</h3><p>Traditional, white and court weddings. Keep the budget, guest list and vendors for every ceremony together, and plan with your partner and families.</p></div>
       <div class="card"><h3>Families</h3><p>Naming ceremonies, birthdays, anniversaries, burials and remembrance services. Share the plan with the family and give each person the part they're handling.</p></div>
+      <div class="card"><h3>Friends</h3><p>Birthdays, showers, game nights and trips. Plan with the people who are coming, so everyone sees the same list, budget and bookings.</p></div>
       <div class="card"><h3>Planning from abroad</h3><p>Organising a wedding or burial back home? Work from the same plan as family on the ground, book providers with verified badges and real reviews, and see every payment.</p></div>
     </div>
   </div>
@@ -237,12 +283,12 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
     <div class="sec-head">
       <p class="eyebrow">If you make events happen</p>
       <h2>Get found, get booked, get paid.</h2>
-      <p>List your business with photos, packages and prices. Clients pay through StrictlyByIV when they book, and you're paid after you deliver, or sooner when your client releases it. Verify your identity or your registered business to earn a badge clients trust.</p>
+      <p>List your business with photos, packages and prices. Hosts pay through StrictlyByIV when they book, and you're paid after you deliver, or sooner when the host releases it. Verify your identity or your registered business to earn a badge hosts trust.</p>
     </div>
 
     <div class="subhead" id="planners">
       <h3>Planners</h3>
-      <p>Run a client's whole event in a shared workspace with their family: the checklist, budget, guests and the vendors and venues you line up together.</p>
+      <p>Run a host's whole event in a shared workspace with their family: the checklist, budget, guests and the vendors and venues you line up together.</p>
       <ul class="chips" style="margin-top:1.1rem">
         <li>Wedding planners</li><li>Corporate &amp; conference planners</li><li>Birthday &amp; party planners</li><li>Day-of &amp; owambe coordinators</li><li>Destination &amp; luxury planners</li><li>Funeral &amp; memorial planners</li>
       </ul>
@@ -250,7 +296,8 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
 
     <div class="subhead" id="vendors">
       <h3>Vendors, 120+ kinds</h3>
-      <p>Every trade a Nigerian event books, each with its own category so clients can find you. Offer more than one service? Pick your main category and up to three more.</p>
+      <p>Every trade a Nigerian event books, each with its own category so hosts can find you. Offer more than one service? Pick your main category and up to three more.</p>
+      <details class="more"><summary>See all 120+ kinds</summary>
       <div class="cats">
         <div class="cat"><h4>Food</h4><ul class="chips"><li>Caterer</li><li>Baker<small>cakes</small></li><li>Small Chops<small>finger food</small></li><li>Grill<small>suya, barbecue</small></li><li>Dessert Table</li><li>Food Truck</li><li>Local Delicacies<small>amala, ofada, pepper soup</small></li><li>Private Chef</li><li>Shawarma Station</li><li>Snack Carts<small>popcorn, candy floss</small></li></ul></div>
         <div class="cat"><h4>Drinks &amp; Cooling</h4><ul class="chips"><li>Mobile Bar<small>cocktails, bartending</small></li><li>Drinks Supplier</li><li>Branded Water</li><li>Cooling Van &amp; Cold Room</li><li>Ice Supplier</li><li>Palm Wine Supplier</li></ul></div>
@@ -270,12 +317,14 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
         <div class="cat"><h4>Corporate &amp; Exhibitions</h4><ul class="chips"><li>Event Ticketing &amp; Registration</li><li>Exhibition Stand Builder</li><li>Team Building Facilitator</li></ul></div>
         <div class="cat"><h4>Funeral &amp; Memorial</h4><ul class="chips"><li>Casket &amp; Coffin</li><li>Funeral Home &amp; Undertaker</li><li>Hearse</li><li>Obituary &amp; Programme Printing</li><li>Pallbearers</li><li>Tombstone &amp; Vault</li></ul></div>
       </div>
+      </details>
       <p class="note"><strong>Don't see your trade?</strong> List under Other and describe what you do. New categories are added often, with no app update needed.</p>
     </div>
 
     <div class="subhead" id="venues">
       <h3>Venues, 40 kinds</h3>
       <p>From event centres to lagoon cruises. Show your capacity, prices and what your space comes with: generator, inverter or solar backup, borehole water, air conditioning, parking, a bridal suite or a traditional wedding setup.</p>
+      <details class="more"><summary>See all 40 kinds</summary>
       <div class="cats">
         <div class="cat"><h4>Halls &amp; Centres</h4><ul class="chips"><li>Event Centre</li><li>Conference Hall</li><li>Banquet Hall</li><li>Civic Centre</li><li>Multipurpose Hall</li><li>Auditorium</li><li>Community Hall</li><li>Exhibition Centre</li><li>Meeting Room &amp; Co-working</li></ul></div>
         <div class="cat"><h4>Hotels &amp; Resorts</h4><ul class="chips"><li>Hotel Banquet</li><li>Beach Resort</li><li>Resort</li></ul></div>
@@ -285,6 +334,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
         <div class="cat"><h4>Religious</h4><ul class="chips"><li>Church Hall</li><li>Mosque Hall</li><li>Chapel</li></ul></div>
         <div class="cat"><h4>Unique</h4><ul class="chips"><li>Rooftop</li><li>Art Gallery</li><li>Warehouse</li><li>Boat</li><li>Studio</li></ul></div>
       </div>
+      </details>
       <p class="note"><strong>Something else?</strong> List under Other and describe your space.</p>
       <p class="note"><strong>More than one space?</strong> Pro lets you run several listings, such as every hall in a hotel.</p>
     </div>
@@ -298,7 +348,7 @@ footer .wrap{display:grid;grid-template-columns:1.2fr 2fr;gap:2rem}
       <h2>Bring in the people who help.</h2>
     </div>
     <div class="cards">
-      <div class="card"><h3>Family &amp; co-hosts</h3><p>Invite them by link, phone or email, and choose what each person can see and do, from the guest list to the budget.</p></div>
+      <div class="card"><h3>Family, friends &amp; co-hosts</h3><p>Invite them by link, phone or email, and choose what each person can see and do, from the guest list to the budget.</p></div>
       <div class="card"><h3>Committees</h3><p>Wedding, burial, church and corporate committees can split the work: one person on guests, another on vendors, another on the budget.</p></div>
       <div class="card"><h3>Your guests</h3><p>They don't need the app. Each guest gets a personal invitation link to reply in their browser and, if they're coming, a QR pass for the gate.</p></div>
     </div>
